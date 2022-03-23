@@ -1,0 +1,63 @@
+/*fonts google api använder web appen*/
+@font-face {
+    font-family: Rubik;
+    src: url(icons-images/fonts/Rubik-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: Montserrat;
+    src: url(icons-images/fonts/Montserrat-VariableFont_wght.ttf);
+}
+/*shell from figma*/
+.circle-load{
+    width: 66px;
+    height: 64px;
+    background: rgba(187, 197, 201, 0.6);
+}
+.rectangle-load{
+    width: 347px;
+    height: 186px;
+    background: rgba(187, 197, 201, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.rectangle-clickable{
+    width: 347px;
+    height: 186px;
+    background: rgba(187, 197, 201, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #F7F7FE;
+}
+
+.button-blue{
+    background: #283F94;
+    font-family: 'Montserrat';
+    text-align: center;
+    color: #FFFF;
+    font-style: normal;
+    border-radius: 5px;
+}
+
+.button-blue:disabled{
+background: #9AA5D4;
+}
+
+.icon-background{
+    width: 34px;
+    height: 34px;
+    content:center;
+    background: #283F94;
+}
+
+.header{
+    font-family: 'Montserrat';
+    background: #283F94;
+}
+
+.text-input{
+background: #FFFF;
+color: #6B727F;
+}
+.text-input::placeholder{
+color: #0493DA;
+}
