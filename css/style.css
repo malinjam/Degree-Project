@@ -1,11 +1,11 @@
 /*fonts google api använder web appen*/
 @font-face {
     font-family: Rubik;
-    src: url(icons-images/fonts/Rubik-VariableFont_wght.ttf);
+    src: url(../icons-images/fonts/Rubik-VariableFont_wght.ttf);
 }
 @font-face {
     font-family: Montserrat;
-    src: url(icons-images/fonts/Montserrat-VariableFont_wght.ttf);
+    src: url(../icons-images/fonts/Montserrat-VariableFont_wght.ttf);
 }
 /*shell from figma*/
 .circle-load{
@@ -60,4 +60,27 @@ color: #6B727F;
 }
 .text-input::placeholder{
 color: #0493DA;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: #F7F7FE;
+    font-family: "Montserrat";
+    padding: 1vw;
+    width:auto;
+    height:auto;
+    background: #283F94;
+    font-size: 2rem;
+}
+#header-center{
+    flex:9;
+    display: flex;
+    align-items: center;
+
+    justify-content: center;
+    height: 10vh;
 }
