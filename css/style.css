@@ -7,23 +7,34 @@
     font-family: Montserrat;
     src: url(../icons-images/fonts/Montserrat-VariableFont_wght.ttf);
 }
-/*shell from figma*/
 .circle-load{
-    width: 66px;
-    height: 64px;
+    width: 15vw;
+    height: 15vw;
     background: rgba(187, 197, 201, 0.6);
+    border-radius: 50%;
+    margin: 2vw;
+}
+#circle-start{
+    display:flex;
+    flex-direction: row;
 }
 .rectangle-load{
-    width: 347px;
-    height: 186px;
+    width: 950px;
+    height: 500px;
+    margin: 10px;
     background: rgba(187, 197, 201, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+
 }
 
 .rectangle-clickable{
-    width: 347px;
-    height: 186px;
+    margin: 10px;
+    width: 500px;
+    height: 250px;
+
+    font-size: 40px;
+
     background: rgba(187, 197, 201, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background: #F7F7FE;
@@ -49,11 +60,6 @@ background: #9AA5D4;
     background: #283F94;
 }
 
-.header{
-    font-family: 'Montserrat';
-    background: #283F94;
-}
-
 .text-input{
 background: #FFFF;
 color: #6B727F;
@@ -64,23 +70,74 @@ color: #0493DA;
 
 .header{
     display: flex;
+    position: static;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    padding: 1vw;
+    padding: 0;
     width:auto;
     height:auto;
     background: #283F94;
     font-size: 2rem;
 }
+
 #header-center{
     flex:9;
     display: flex;
     align-items: center;
-
+    margin: 10px;
     justify-content: center;
     height: 10vh;
+}
+
+.bottom-menu{
+    position:static;
+    bottom: 0px;
+    background-color: #F7F7FE;
+    
+    padding: 3vw;
+    align-items: center;
+    justify-content: center;
+    width:auto;
+    height:auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    font-family: "Montserrat";
+    text-align: center;
+    font-size: 2rem;
+    color: #6C737E;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFF;
+    justify-content: center;
+    row-gap: 20px;
+    justify-content: center;
+}
+
+#forgot-start{
+    font-family: "Rubik";
+    color:#1D1D1D;
+
+    align-items: center;
+    padding: auto;
+
+    display: flex;
+    flex-direction: row;
+    margin:1vw;
+}
+
+#title-start{
+    font-size: 50px;
+    font-family: "Rubik";
+    color:#1D1D1D;
+    margin: 1vw;  
 }
