@@ -70,15 +70,14 @@ color: #0493DA;
 
 .header{
     display: flex;
-    position: static;
+    position: fixed;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    padding: 0;
-    width:auto;
+    width:100vw;
     height:auto;
     background: #283F94;
     font-size: 2rem;
@@ -94,14 +93,15 @@ color: #0493DA;
 }
 
 .bottom-menu{
-    position:static;
+    position:fixed;
     bottom: 0px;
     background-color: #F7F7FE;
+    width: 100vw;
+
     
     padding: 3vw;
     align-items: center;
     justify-content: center;
-    width:auto;
     height:auto;
 
     display: flex;
@@ -117,6 +117,7 @@ color: #0493DA;
 .content{
     display: flex;
     flex-direction: column;
+    width: 100vw;
     background-color: #FFFF;
     justify-content: center;
     row-gap: 20px;
