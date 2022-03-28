@@ -19,7 +19,7 @@
     flex-direction: row;
 }
 .rectangle-load{
-    width: 950px;
+    width: 900px;
     height: 500px;
     margin: 10px;
     background: rgba(187, 197, 201, 0.7);
@@ -47,10 +47,29 @@
     color: #FFFF;
     font-style: normal;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .button-blue:disabled{
 background: #9AA5D4;
+}
+
+.button-light-blue{
+    font-family: 'Montserrat';
+    text-align: center;
+    color: #FFFF;
+    background-color: #0493DA;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 2rem;
+    width: 90vw;
+    border:none;
+    border-radius: 10px;
+    margin: 1em;
+}
+
+.button-light-blue:disabled{
+    background: #9AA5D4;
 }
 
 .icon-background{
@@ -61,23 +80,32 @@ background: #9AA5D4;
 }
 
 .text-input{
-background: #FFFF;
-color: #6B727F;
+    border: none;
+    text-align: center;
+    margin:10px;
+    height:4rem;
+    background-color: #FFFF;
+    color: #0493DA;
+    border-radius:5px;
+    font-family: "Rubik";
+    font-size: x-large;
 }
 .text-input::placeholder{
-color: #0493DA;
+color: #6B727F;
 }
 
 .header{
     display: flex;
-    position: fixed;
     flex-direction: row;
+    position: fixed;
+    top:0px;
+    left:0px;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    width:100vw;
+    width:100%;
     height:auto;
     background: #283F94;
     font-size: 2rem;
@@ -95,9 +123,11 @@ color: #0493DA;
 .bottom-menu{
     position:fixed;
     bottom: 0px;
+    left:0px;
     background-color: #F7F7FE;
-    width: 100vw;
-
+    width: 100%;
+    border: none;
+    cursor: pointer;
     
     padding: 3vw;
     align-items: center;
@@ -113,11 +143,16 @@ color: #0493DA;
     font-size: 2rem;
     color: #6C737E;
 }
+#bottom-boxes{
+    flex:1; 
+    text-decoration: none; 
+    color: #6C737E;
+}
 
 .content{
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     background-color: #FFFF;
     justify-content: center;
     row-gap: 20px;
@@ -127,10 +162,8 @@ color: #0493DA;
 #forgot-start{
     font-family: "Rubik";
     color:#1D1D1D;
-
     align-items: center;
     padding: auto;
-
     display: flex;
     flex-direction: row;
     margin:1vw;
@@ -141,4 +174,27 @@ color: #0493DA;
     font-family: "Rubik";
     color:#1D1D1D;
     margin: 1vw;  
+}
+#search-form{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1 1 1;
+    column-gap: 10px;
+    position: initial;
+}
+#headform{
+    background-color: #283F94;
+    position:fixed; 
+    top:0px;
+    left:0px; 
+    width:100%;
+    height: 1/3vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
 }
