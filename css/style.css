@@ -210,7 +210,12 @@ body{
     font-family: "Montserrat";
     font-size: xx-large;
     color: #6C737E;
-    background-color: #FFFF;
+    background-color: #FFFFFF;
+}
+
+a{
+    color: #0493DA;
+    font-weight: bold;
 }
 
 .contbox{
@@ -235,10 +240,12 @@ body{
     border:3px solid #E5E5E5;
     margin:10px;
 }
+
 #loyaltylvl{
     font-weight: bolder;
     color: #2B3134;
 }
+
 #extras{
     background-color: #283F94;
     color: #FFFF;
@@ -246,4 +253,17 @@ body{
     border-radius: 100%;
     margin: 1%;
     padding: 1%;
+}
+
+#textflex{
+    display:flex;
+    flex-direction:column;
+    text-align: left;
+    justify-content: center;
+}
+
+#contservices{
+    justify-content: left;
+    padding: 2%;
+    flex-direction: row;
 }
