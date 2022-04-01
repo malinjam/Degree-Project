@@ -3,22 +3,26 @@
     font-family: Rubik;
     src: url(../icons-images/fonts/Rubik-VariableFont_wght.ttf);
 }
+
 @font-face {
     font-family: Montserrat;
     src: url(../icons-images/fonts/Montserrat-VariableFont_wght.ttf);
 }
-.circle-load{
+
+.circle-load {
     width: 15vw;
     height: 15vw;
     background: rgba(187, 197, 201, 0.6);
     border-radius: 50%;
     margin: 2vw;
 }
-#circle-start{
-    display:flex;
+
+#circle-start {
+    display: flex;
     flex-direction: row;
 }
-.rectangle-load{
+
+.rectangle-load {
     width: 900px;
     height: 500px;
     margin: 10px;
@@ -28,7 +32,7 @@
 
 }
 
-.rectangle-clickable{
+.rectangle-clickable {
     margin: 10px;
     width: 500px;
     height: 250px;
@@ -38,7 +42,7 @@
     background: #F7F7FE;
 }
 
-.button-blue{
+.button-blue {
     background: #283F94;
     font-family: 'Montserrat';
     text-align: center;
@@ -48,11 +52,11 @@
     cursor: pointer;
 }
 
-.button-blue:disabled{
-background: #9AA5D4;
+.button-blue:disabled {
+    background: #9AA5D4;
 }
 
-.button-light-blue{
+.button-light-blue {
     font-family: 'Montserrat';
     text-align: center;
     color: #FFFF;
@@ -61,58 +65,59 @@ background: #9AA5D4;
     font-size: 30px;
     padding: 2rem;
     width: 90vw;
-    border:none;
+    border: none;
     border-radius: 10px;
     margin: 1em;
 }
 
-.button-light-blue:disabled{
+.button-light-blue:disabled {
     background: #9AA5D4;
 }
 
-.icon-background{
+.icon-background {
     width: 34px;
     height: 34px;
-    content:center;
+    content: center;
     background: #283F94;
 }
 
-.text-input{
+.text-input {
     border: none;
     text-align: center;
-    margin:10px;
-    height:4rem;
+    margin: 10px;
+    height: 4rem;
     background-color: #FFFF;
     color: #0493DA;
-    border-radius:5px;
+    border-radius: 5px;
     font-family: "Rubik";
     font-size: x-large;
 }
-.text-input::placeholder{
-color: #6B727F;
+
+.text-input::placeholder {
+    color: #6B727F;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: row;
     position: fixed;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    width:100%;
-    height:10%;
+    width: 100%;
+    height: 10%;
     background: #283F94;
     font-size: 2rem;
     padding-top: 2%;
     padding-bottom: 2%;
 }
 
-#header-center{
-    flex:9;
+#header-center {
+    flex: 9;
     display: flex;
     align-items: center;
     margin: 10px;
@@ -120,20 +125,20 @@ color: #6B727F;
     height: 10vh;
 }
 
-.bottom-menu{
-    position:fixed;
+.bottom-menu {
+    position: fixed;
     bottom: 0px;
-    left:0px;
+    left: 0px;
     background-color: #F7F7FE;
     width: 100%;
     height: 10%;
     border: none;
     cursor: pointer;
-    
+
     padding: 3vw;
     align-items: center;
     justify-content: center;
-    height:auto;
+    height: auto;
 
     display: flex;
     flex-direction: row;
@@ -145,13 +150,13 @@ color: #6B727F;
     color: #6C737E;
 }
 
-#bottom-boxes{
-    flex:1; 
-    text-decoration: none; 
+#bottom-boxes {
+    flex: 1;
+    text-decoration: none;
     color: #6C737E;
 }
 
-.content{
+.content {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -161,24 +166,24 @@ color: #6B727F;
     justify-content: center;
 }
 
-#forgot-start{
+#forgot-start {
     font-family: "Rubik";
-    color:#1D1D1D;
+    color: #1D1D1D;
     align-items: center;
     padding: auto;
     display: flex;
     flex-direction: row;
-    margin:1vw;
+    margin: 1vw;
 }
 
-#title-start{
+#title-start {
     font-size: 50px;
     font-family: "Rubik";
-    color:#1D1D1D;
-    margin: 1vw;  
+    color: #1D1D1D;
+    margin: 1vw;
 }
 
-#search-form{
+#search-form {
     display: grid;
     justify-content: center;
     text-align: center;
@@ -189,13 +194,13 @@ color: #6B727F;
     position: initial;
 }
 
-#headform{
+#headform {
     background-color: #283F94;
-    position:fixed; 
-    top:0px;
-    left:0px; 
-    width:100%;
-    height: 1/3vh; 
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 1/3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -203,7 +208,7 @@ color: #6B727F;
     row-gap: 10px;
 }
 
-body{
+body {
     position: static;
     margin-top: 20%;
     margin-bottom: 12%;
@@ -213,57 +218,63 @@ body{
     background-color: #FFFFFF;
 }
 
-a{
+a {
     color: #0493DA;
     font-weight: bold;
 }
 
-.contbox{
+.contbox {
     position: static;
     display: flex;
     flex-direction: column;
     background-color: #F7F7FE;
     text-align: center;
     justify-content: center;
-    margin:10px;
+    margin: 10px;
     border-radius: 10px;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
 }
 
-#innerbox{
+#innerbox {
     background-color: #FFFF;
     height: fit-content;
-    width:33%;
+    width: 33%;
     border-radius: 5px;
     align-items: center;
     padding: 3%;
-    border:3px solid #E5E5E5;
-    margin:10px;
+    border: 3px solid #E5E5E5;
+    margin: 10px;
 }
 
-#loyaltylvl{
+#loyaltylvl {
     font-weight: bolder;
     color: #2B3134;
 }
 
-#extras{
+#extras {
     background-color: #283F94;
     color: #FFFF;
-    width:10%;
+    width: 10%;
     border-radius: 100%;
     margin: 1%;
     padding: 1%;
 }
 
-#textflex{
-    display:flex;
-    flex-direction:column;
+#textflex {
+    display: flex;
+    flex-direction: column;
     text-align: left;
     justify-content: center;
 }
 
-#contservices{
+#contservices {
     justify-content: left;
     padding: 2%;
     flex-direction: row;
+}
+.alt1{
+    text-align: center;
+    align-content: center;
+    flex:1;
+    height: 100%;
 }
