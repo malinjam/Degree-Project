@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Start from '../views/start'
-import Search from './views/search';
-import DateSelect from './views/dateselect';
-import ServiceSelect from './views/services';
-import Payment from './views/payment';
+import Start from '../views/start.js'
+import Search from './views/search.js';
+import DateSelect from './views/dateselect.js';
+import ServiceSelect from './views/services.js';
+import Payment from './views/payment.js';
 
 
 function App(){
