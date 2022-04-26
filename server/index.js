@@ -9,6 +9,10 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+app.get("/", function(req, res) {
+    res.sendFile("start.html", {root: "public"});
+});
+
 app.get("/start", function(req, res) {
     res.sendFile("start.html", {root: "public"});
 });
