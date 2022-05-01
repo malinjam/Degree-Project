@@ -1,11 +1,20 @@
+var CACHE_NAME = "service-cache";
+var CACHED_URLS = [
+  "/services-offline.html",
+  "/css/style.css"
+];
+
+self.addEventListener("install", function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll(CACHED_URLS);
+    })
+  );
+});
 self.addEventListener("fetch", function(event) {
-    event.respondWith(
-      fetch(event.request).catch(function() {
-        return new Response(
-        "Welcome to the Gotham Imperial Hotel.\n"+
-        "There seems to be a problem with your connection.\n"+
-        "We look forward to telling you about our hotel as soon as you go online."
-        );
-      })
-    );
-  });
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match("./services-offline.html");
+    })
+  );
+});

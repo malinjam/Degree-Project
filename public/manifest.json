@@ -1,6 +1,8 @@
 {
     "short-name": "PWA Prototype",
     "name": "PWA prorotype for flyone",
+    "start_url": "/start",
+    "display": "fullscreen",
     "icons":[
         {
             "src": "favicon.ico",

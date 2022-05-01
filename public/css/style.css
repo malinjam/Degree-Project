@@ -97,6 +97,13 @@
     color: #6B727F;
 }
 
+.head-and-progress-ontainer{
+    display:flex;
+    flex-direction: column;
+    position:fixed;
+    top: 0px;
+    left:0px;
+}
 .header {
     display: flex;
     flex-direction: row;
@@ -114,6 +121,11 @@
     font-size: 2rem;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+.progress{
+    display:flex;
+    flex-direction:row;
+    position:fixed;
 }
 
 #header-center {
@@ -210,7 +222,7 @@
 
 body {
     position: static;
-    margin-top: 12%;
+    margin-top: 20%;
     margin-bottom: 12%;
     font-family: "Montserrat";
     font-size: xx-large;
