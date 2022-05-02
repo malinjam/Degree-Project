@@ -23,8 +23,8 @@
 }
 
 .rectangle-load {
-    width: 900px;
-    height: 500px;
+    width: 90%;
+    height: 25vh;
     margin: 10px;
     background: rgba(187, 197, 201, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -34,7 +34,7 @@
 
 .rectangle-clickable {
     margin: 10px;
-    width: 500px;
+    width: 50%;
     height: 250px;
 
     background: rgba(187, 197, 201, 0.7);
@@ -62,8 +62,8 @@
     color: #FFFF;
     background-color: #0493DA;
     cursor: pointer;
-    font-size: 30px;
-    padding: 2rem;
+    line-height: 2em;
+    font-size: 80%;
     width: 90vw;
     border: none;
     border-radius: 10px;
@@ -84,11 +84,13 @@
 .text-input {
     border: none;
     text-align: center;
-    margin: 10px;
-    height: 4rem;
+    margin: 3%;
+    width: 70%;
+    height: 2em;
+    justify-self: center;
     background-color: #FFFF;
     color: #0493DA;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: "Rubik";
     font-size: x-large;
 }
@@ -108,6 +110,7 @@
     display: flex;
     flex-direction: row;
     position: fixed;
+    width: 100%;
     top: 0px;
     left: 0px;
     flex-wrap: nowrap;
@@ -115,7 +118,6 @@
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    width: 100%;
     height: 10%;
     background: #283F94;
     font-size: 2rem;
@@ -132,7 +134,7 @@
     flex: 9;
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 1%;
     justify-content: center;
     height: 10vh;
 }
@@ -142,15 +144,15 @@
     bottom: 0px;
     left: 0px;
     background-color: #F7F7FE;
-    width: 100%;
-    height: 10%;
+    width: 90%;
     border: none;
     cursor: pointer;
 
-    padding: 3vw;
+    padding-left: 5%;
+    padding-right: 5%;
     align-items: center;
     justify-content: center;
-    height: auto;
+    height: 2em;
 
     display: flex;
     flex-direction: row;
@@ -158,12 +160,13 @@
 
     font-family: "Montserrat";
     text-align: center;
-    font-size: 2rem;
     color: #6C737E;
 }
 
 #bottom-boxes {
     flex: 1;
+    padding: 5%;
+    font-size: 60%;
     text-decoration: none;
     color: #6C737E;
 }
@@ -211,18 +214,35 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
     height: 1/3vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 1%;
+}
+#progress{
+    display: flex;
+    flex-direction: row;
+    background-color: #F7F7FE;
+  
+    height:100%;
+}
+
+.head-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 10vh;
+    margin-bottom: 3%;
 }
 
 body {
-    position: static;
-    margin-top: 20%;
+    width:initial;
+    margin-top: 15vh;
     margin-bottom: 12%;
     font-family: "Montserrat";
     font-size: xx-large;

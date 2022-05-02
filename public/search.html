@@ -3,14 +3,14 @@
             <head>
                 <title>FLYONE | Search</title>
                 <link rel="stylesheet" href="../css/style.css" />
+                <meta name="viewport" content="theme-color=#283F94, width=device-width, initial-scale=1">
                 <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
                 <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
                 <link rel="shortcut icon" href="/favicon.ico">
                 <link rel="manifest" href="/manifest.json">
             </head>
 
-            <body
-                style="background-image: url(../icons-images/images/europe-map.svg); background-size: 100vh;background-repeat: no-repeat;">
+            <body>
                 <div id="headform">
                     <div class="header" style="position: initial;">
                         <div style="flex:1;margin: 2vw;">Menu</div>
@@ -33,6 +33,14 @@
                         </form>
                     </div>
                 </div>
+
+                <script>                            //start of googles map api
+                    map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 8,
+                    mapId: 'MAP_ID'
+                    });
+                    </script>
 
                 <div class="bottom-menu">
                     <a id="bottom-boxes" href="./start">Home</a>

@@ -1,13 +1,16 @@
 {
     "short-name": "PWA Prototype",
-    "name": "PWA prorotype for flyone",
+    "name": "PWA prototype for flyone",
     "start_url": "/start",
     "display": "fullscreen",
+    "background_color":"#FFFFFF",
+    "theme_color":"#283F94",
+
     "icons":[
         {
             "src": "favicon.ico",
             "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
+            "type": "png"
         },
         {
             "src": "icons-images",
