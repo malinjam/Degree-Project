@@ -17,114 +17,557 @@
         <div style="flex:1;margin: 2vw;">Login</div>
     </div>
 
+    <div id="service-overlays">
+        <div id="innerbox"
+            style="width: 50vw; position: fixed; top:25vh; left:25vw; box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15); justify-content: center;">
+
+            <div id="checkinbags" style="display:none;">
+                Check-in Bags:
+                <div style="display:flex; flex-direction: row;">
+                    <div id="in">
+                        10kg
+                        <input type="number"></input>
+                    </div>
+                    <div id="in">
+                        20kg
+                        <input type="number"></input>
+                    </div>
+                    <div id="in">
+                        30kg
+                        <input type="number"></input>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="seats">
+                Seats:
+                <div style="display: flex; flex-direction: row;">
+                    <div id="seat-icon" style="padding:1%; border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;">Premium</div>
+                    <div id="seat-icon" style="padding:1%; border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;">Front</div>
+                    <div id="seat-icon" style="padding:1%; border-color: #47864F;  color: #47864F; background-color: #A3C3A7; font-size: 2vw;">Selected</div>
+                    <div id="seat-icon" style="padding:1%; border-color: #929496;  color: #929496; background-color: #C9CACB; font-size: 2vw;">Taken</div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; padding-bottom: 2%;">
+                    <div id="seat-icon" style="padding:1%; border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C; font-size: 2vw;">Extra Room</div>
+                    <div id="seat-icon" style="padding:1%; font-size: 2vw;"> other</div>
+                    <div id="seat-icon" style="padding:1%; border-color: #353A85;  color: #353A85; background-color: #9A9CC2; font-size: 2vw;">Companion</div>
+                </div>
+
+                <div id="seatgrid">
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                    </div>
+                    <div style="text-align: center;"> 1 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #7C3283;  color: #7C3283; background-color: #BE98C1; font-size: 2vw;"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                    </div>
+                    <div style="text-align: center;"> 2 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                    </div>
+                    <div style="text-align: center;"> 3 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                    </div>
+                    <div style="text-align: center;"> 4 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                    </div>
+                    <div style="text-align: center;"> 5 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon" style="border-color: #396FAE;  color: #396FAE; background-color: #9CB7D7; font-size: 2vw;"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 6 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 7 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 8 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 9 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 10 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 11 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                    </div>
+                    <div style="text-align: center;"> 12 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                    </div>
+                    <div style="text-align: center;"> 13 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                        <div id="seat-icon" style="border-color: #BF4D40;  color: #BF4D40; background-color: #E0AF5C;"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 14 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 15 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 16 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 17 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 18 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 19 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 20 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 21 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 22 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 23 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 24 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 25 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 26 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 27 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 28 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 29 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+                    <div style="text-align: center;"> 30 </div>
+                    <div id="seat-row">
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                        <div id="seat-icon"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div style="display:flex; flex-direction:row;">
+                <button class="button-blue" style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "
+                    onclick="gone()"> Cancel</button>
+                <button class="button-light-blue" style="width:50%" onclick="gone()"> Save </button>
+            </div>
+        </div>
+    </div>
+
     <h2>Baggage</h2>
     <div><img src="" /> Small cabin bag included </div>
 
     <form style="display:flex; flex-direction:column; margin:1%;">
-        <div class="contbox" id="contservices">
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select bags/F1-Icon-04.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Large Cabin bag + Priority</div>
-                <div id="lower">Extra 10kg (50x40x25) cabin bag</div>
-            </div>
+                <div>Large Cabin bag + Priority</div>
+                <div>Extra 10kg (50x40x25) cabin bag</div>
+        </button>
         </div>
-        <div class="contbox" id="contservices">
+        <button onclick="overlay('checkinbags')" class="contbox" id="contservices">
             <img src="../icons-images/svgs/select bags/F1-Icon-03.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Checked-in baggage</div>
-                <div id="lower">Select 10kg, 20kg or 30kg</div>
-            </div>
+                <div>Checked-in baggage</div>
+                <div>Select 10kg, 20kg or 30kg</div>
+        </button>
         </div>
         <h2>Seats and Meals</h2>
-        <div class="contbox" id="contservices">
+        <button onclick="overlay('seats')" class="contbox" id="contservices">
             <img src="../icons-images/svgs/loader icon/loader-type1-4.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Seats</div>
-                <div id="lower">Travel with family and friends.</div>
-            </div>
+                <div>Seats</div>
+                <div>Travel with family and friends.</div>
+        </button>
+        <div style="display:flex; flex-direction:row; ">
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+                <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;">Classic</div>
+                <div></div>
+            </radio>
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+                <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;">Medeterranean</div>
+            </radio>
+
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+                <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;">Traditional</div>
+                <div></div>
+            </radio>
         </div>
-        <div style="display:flex; flex-direction:row">
-            <div class="contbox" style="flex:1; justify-content: center;align-items: center;">
-                <img src="" id="extras" />
-                <div id="upper">Classic</div>
-                <div id="lower"></div>
-            </div>
-            <div class="contbox" style="flex:1; justify-content: center;align-items: center;">
-                <img src="" id="extras" />
-                <div id="upper">Medeterranean</div>
-                <div id="lower"></div>
-            </div>
-            <div class="contbox" style="flex:1; justify-content: center;align-items: center;">
-                <img src="" id="extras" />
-                <div id="upper">Traditional</div>
-                <div id="lower"></div>
-            </div>
-        </div>
+
         <h2> Check-in</h2>
         <div> <img style="height:1em;" src="../icons-images/svgs/loader icon/loader-type1-2.svg" /> Online check-in free
             24h</div>
         <div style="display:flex; flex-direction: row; justify-content: center;">
-            <div class="contbox" style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
+            <button class="contbox"
+                style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
                 <img src="../icons-images/svgs/select specs/F1-133-Airport-Check-in.svg" id="extras"
                     style="height: 50%;width:auto;" />
-                <div id="lower">Airport Check-in</div>
-            </div>
-            <div class="contbox" style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
+                <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Airport Check-in</div>
+            </button>
+            <button class="contbox"
+                style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
                 <img src="../icons-images/svgs/select specs/F1-133-Early-Checking.svg" id="extras"
                     style="height: 50%; width:auto;" />
-                <div id="lower">Early Check-in</div>
-            </div>
+                <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Early Check-in</div>
+            </button>
         </div>
         <h2>Other services</h2>
-        <div class="contbox" id="contservices">
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select bags/F1-71-Bag-guarantee.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Baggage guarantee</div>
-                <div id="lower">Insurance in case of damage</div>
+                <div>Baggage guarantee</div>
+                <div>Insurance in case of damage</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select bags/F1-Icon-04.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Baggage priority</div>
-                <div id="lower">Stop waiting in line!</div>
+                <div>Baggage priority</div>
+                <div>Stop waiting in line!</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select specs/F1-Icon-44-Sport.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Sports equipment</div>
-                <div id="lower">Travel with sports gear!</div>
+                <div>Sports equipment</div>
+                <div>Travel with sports gear!</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select specs/F1-133-Priority-Notification.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Priority notification</div>
-                <div id="lower">Find out first!</div>
+                <div>Priority notification</div>
+                <div>Find out first!</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select specs/F1-133-online-Check-up.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Automated check-in</div>
-                <div id="lower">Automatically check-in!</div>
+                <div>Automated check-in</div>
+                <div>Automatically check-in!</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select specs/F1-72-On-time-Guarantee.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">On-time guarantee</div>
-                <div id="lower">Delayed flight or cancelled flight?</div>
+                <div>On-time guarantee</div>
+                <div>Delayed flight or cancelled flight?</div>
             </div>
-        </div>
-        <div class="contbox" id="contservices">
+        </button>
+        <button class="contbox" id="contservices">
             <img src="../icons-images/svgs/select specs/F1-Icon-46-Pet.svg" id="extras" />
             <div id="textflex">
-                <div id="upper">Pets on board</div>
-                <div id="lower">Bring your pets with you!</div>
+                <div>Pets on board</div>
+                <div>Bring your pets with you!</div>
             </div>
-        </div>
+        </button>
     </form>
 
     <div class="bottom-menu">
@@ -135,6 +578,17 @@
     </div>
 
     <script src="/js/app.js"></script>
+    <script>
+        function overlay(choice) {
+            document.getElementById("service-overlays").style.display = "block";
+            document.getElementById(choice).style.display = "block";
+        }
+        function gone() {
+            document.getElementById("service-overlays").style.display = "none";
+            document.getElementById("checkinbags").style.display = "none";
+            document.getElementById("seats").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
