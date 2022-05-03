@@ -51,7 +51,7 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 2vw;
-    cursor: pointer;
+
 }
 
 .button-blue:disabled {
@@ -101,13 +101,6 @@
     color: #6B727F;
 }
 
-.head-and-progress-ontainer{
-    display:flex;
-    flex-direction: column;
-    position:fixed;
-    top: 0px;
-    left:0px;
-}
 .header {
     display: flex;
     flex-direction: row;
@@ -126,10 +119,10 @@
     padding-top: 2%;
     padding-bottom: 2%;
 }
-.progress{
-    display:flex;
-    flex-direction:row;
-    position:fixed;
+
+#progress-bar{
+    background-color: #FFFFFF;
+    height: 50%;
 }
 
 #header-center {
@@ -154,7 +147,7 @@
     padding-right: 5%;
     align-items: center;
     justify-content: center;
-    height: 2em;
+    height: 10vh;
 
     display: flex;
     flex-direction: row;
@@ -228,7 +221,6 @@
     display: flex;
     flex-direction: row;
     background-color: #F7F7FE;
-  
     height:100%;
 }
 
@@ -244,8 +236,8 @@
 
 body {
     width:initial;
-    margin-top: 15vh;
-    margin-bottom: 12%;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
     font-family: "Montserrat";
     font-size: 4vw;
     color: #6C737E;
@@ -279,8 +271,6 @@ a {
     border: 3px solid #E5E5E5;
     margin: 1%;
 }
-
-
 
 #loyaltylvl {
     font-size: 4vw;
@@ -346,14 +336,17 @@ a {
 
 #service-overlays{
     position: fixed;
+    overflow-y: scroll;
 }
 
 #checkinbags{
+    display: none;
     justify-content: center;
     text-align: center;
 }
 
 #seats{
+    display: none;
     justify-content: center;
 }
 #seatgrid{
@@ -378,4 +371,28 @@ a {
     height: 2vh;
     flex:1;
     margin: 1%;
+}
+
+#summary{
+    display:none;
+    flex-direction: column;
+    position: fixed;
+    width: 50vw;
+    left: 20vh;
+    top: 50vh;
+    padding: 2%;
+    font-size: 2vw;
+}
+
+#sum{
+    display: block;
+    flex:1; 
+    font-size: 2vh; 
+    padding: 1%; 
+    border-style: solid; 
+    border-color: #E5E5E5; 
+    background-color: #FFFFFF;
+    color: #6C737E; 
+    border-radius: 5px;
+    cursor: pointer;
 }

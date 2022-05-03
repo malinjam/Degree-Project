@@ -1,8 +1,4 @@
-var CACHE_NAME = "service-cache";
-var CACHED_URLS = [
-  "/services-offline.html",
-  "/css/style.css"
-];
+
 
 self.addEventListener("install", function(event) {
   event.waitUntil(
@@ -14,7 +10,7 @@ self.addEventListener("install", function(event) {
 self.addEventListener("fetch", function(event) {
   event.respondWith(
     fetch(event.request).catch(function() {
-      return caches.match("./services-offline.html");
+      return caches.match("./start");
     })
   );
 });
