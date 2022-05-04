@@ -23,8 +23,8 @@
 }
 
 .rectangle-load {
-    width: 900px;
-    height: 500px;
+    width: 90%;
+    height: 25vh;
     margin: 10px;
     background: rgba(187, 197, 201, 0.7);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -34,7 +34,7 @@
 
 .rectangle-clickable {
     margin: 10px;
-    width: 500px;
+    width: 50%;
     height: 250px;
 
     background: rgba(187, 197, 201, 0.7);
@@ -48,8 +48,10 @@
     text-align: center;
     color: #FFFF;
     font-style: normal;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 5px;
+    font-size: 2vw;
+
 }
 
 .button-blue:disabled {
@@ -62,9 +64,9 @@
     color: #FFFF;
     background-color: #0493DA;
     cursor: pointer;
-    font-size: 30px;
-    padding: 2rem;
-    width: 90vw;
+    line-height: 2em;
+    font-size: 2vw;
+    width: 90%;
     border: none;
     border-radius: 10px;
     margin: 1em;
@@ -73,7 +75,9 @@
 .button-light-blue:disabled {
     background: #9AA5D4;
 }
-
+.button-light-blue::after{
+    background: #283F94;
+}
 .icon-background {
     width: 34px;
     height: 34px;
@@ -84,11 +88,13 @@
 .text-input {
     border: none;
     text-align: center;
-    margin: 10px;
-    height: 4rem;
+    margin: 3%;
+    width: 70%;
+    height: 2em;
+    justify-self: center;
     background-color: #FFFF;
     color: #0493DA;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: "Rubik";
     font-size: x-large;
 }
@@ -97,17 +103,11 @@
     color: #6B727F;
 }
 
-.head-and-progress-ontainer{
-    display:flex;
-    flex-direction: column;
-    position:fixed;
-    top: 0px;
-    left:0px;
-}
 .header {
     display: flex;
     flex-direction: row;
     position: fixed;
+    width: 100%;
     top: 0px;
     left: 0px;
     flex-wrap: nowrap;
@@ -115,24 +115,23 @@
     justify-content: center;
     color: #F7F7FE;
     font-family: "Montserrat";
-    width: 100%;
     height: 10%;
     background: #283F94;
     font-size: 2rem;
     padding-top: 2%;
     padding-bottom: 2%;
 }
-.progress{
-    display:flex;
-    flex-direction:row;
-    position:fixed;
+
+#progress-bar{
+    background-color: #FFFFFF;
+    height: 50%;
 }
 
 #header-center {
     flex: 9;
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 1%;
     justify-content: center;
     height: 10vh;
 }
@@ -142,15 +141,15 @@
     bottom: 0px;
     left: 0px;
     background-color: #F7F7FE;
-    width: 100%;
-    height: 10%;
+    width: 90%;
     border: none;
     cursor: pointer;
 
-    padding: 3vw;
+    padding-left: 5%;
+    padding-right: 5%;
     align-items: center;
     justify-content: center;
-    height: auto;
+    height: 10vh;
 
     display: flex;
     flex-direction: row;
@@ -158,12 +157,13 @@
 
     font-family: "Montserrat";
     text-align: center;
-    font-size: 2rem;
     color: #6C737E;
 }
 
 #bottom-boxes {
     flex: 1;
+    padding: 5%;
+    font-size: 60%;
     text-decoration: none;
     color: #6C737E;
 }
@@ -211,21 +211,37 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 100%;
     height: 1/3vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 10px;
+    row-gap: 1%;
+}
+#progress{
+    display: flex;
+    flex-direction: row;
+    background-color: #F7F7FE;
+    height:100%;
+}
+
+.head-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 10vh;
+    margin-bottom: 3%;
 }
 
 body {
-    position: static;
-    margin-top: 20%;
-    margin-bottom: 12%;
+    width:initial;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
     font-family: "Montserrat";
-    font-size: xx-large;
+    font-size: 4vw;
     color: #6C737E;
     background-color: #FFFFFF;
 }
@@ -242,24 +258,26 @@ a {
     background-color: #F7F7FE;
     text-align: center;
     justify-content: center;
+    width: 98%;
     margin: 10px;
     border-radius: 10px;
+    border-width: 0px;
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
 }
 
 #innerbox {
     background-color: #FFFF;
     height: fit-content;
-    width: 33%;
     border-radius: 5px;
     align-items: center;
     padding: 3%;
     border: 3px solid #E5E5E5;
-    margin: 10px;
+    margin: 1%;
 }
 
 #loyaltylvl {
-    font-weight: bolder;
+    font-size: 4vw;
+    padding: 5%;
     color: #2B3134;
 }
 
@@ -283,10 +301,101 @@ a {
     justify-content: left;
     padding: 2%;
     flex-direction: row;
+    font-family: "Montserrat";
+    color: #6C737E;
+    font-size: 4vw;
 }
 .alt1{
     text-align: center;
     align-content: center;
     flex:1;
     height: 100%;
+}
+
+#dates{
+    flex:2;
+    height: 7vh;
+    font-size: 50%;
+    padding:1em;
+}
+
+#class-trio{
+    height: 40%;
+    padding-bottom: 1%; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+}
+#in{
+    background-color: #FFFF;
+    width: 33%;
+    border-radius: 5px;
+    align-items: center;
+    border: 3px solid #E5E5E5;
+    padding-top:3%; 
+    padding-bottom:1%;
+    margin: 1%;
+}
+
+#service-overlays{
+    position: fixed;
+    overflow-y: scroll;
+}
+
+#checkinbags{
+    display: none;
+    justify-content: center;
+    text-align: center;
+}
+
+#seats{
+    display: none;
+    justify-content: center;
+}
+#seatgrid{
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    grid-template-rows:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
+}
+
+#seat-row{
+    display: flex;
+    flex-direction: row;
+}
+
+#seat-icon{
+    background-color:rgb(137, 203, 244);
+    color:rgb(20, 154, 231);
+    border-color: rgb(20, 154, 231);
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: solid;
+    width: 1vw;
+    height: 2vh;
+    flex:1;
+    margin: 1%;
+}
+
+#summary{
+    display:none;
+    flex-direction: column;
+    position: fixed;
+    width: 50vw;
+    left: 20vh;
+    top: 50vh;
+    padding: 2%;
+    font-size: 2vw;
+}
+
+#sum{
+    display: block;
+    flex:1; 
+    font-size: 2vh; 
+    padding: 1%; 
+    border-style: solid; 
+    border-color: #E5E5E5; 
+    background-color: #FFFFFF;
+    color: #6C737E; 
+    border-radius: 5px;
+    cursor: pointer;
 }
