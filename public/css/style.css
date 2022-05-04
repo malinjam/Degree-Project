@@ -399,3 +399,8 @@ a {
     border-radius: 5px;
     cursor: pointer;
 }
+
+#offline{
+    color: #FFFFFF;
+    background-color: #283F94;
+}
