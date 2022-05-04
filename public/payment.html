@@ -27,22 +27,22 @@
 
     </div>
 
-    <form style="display:flex; flex-direction: column;">
+    <form style="display:flex; flex-direction: column; justify-content: center;">
         <h2>Passenger details </h2>
         <h3>Adult 1</h3>
         <div style="display:flex; flex-direction:row;">
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="First Name" />
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="Family Name" />
         </div>
-        <div id="innerbox" style="align-self: center; display: flex;flex-direction: row; padding:1%;">
-            <div style="flex:1;">
-                <label for="Female" class="button-light-blue" style="padding: 15%;">
-                    <input type="radio" value="Female" name="gender" style="display: none;"/>Female
+        <div id="innerbox" style="justify-content: center; display:flex;flex-direction: row; padding:0%; width: 20vw; height: 2em; border-width: 0px;">
+            <div style=" flex:1;">
+                <label for="Female" class="button-light-blue" style="margin:0px; padding:10%;">Female
+                    <input type="radio" value="Female" name="gender" style="display: none; width:0px; height: 0px;"/>
                 </label>
             </div>
-            <div style="flex:1;">
-                <label for="Male" class="button-light-blue" style="padding: 15%;">
-                    <input type="radio" value="Male" name="gender" style="display: none;"/>Male
+            <div style=" flex:1; ">
+                <label for="Male" class="button-light-blue" style="margin:0px; padding:10%; justify-content: right;">
+                    <input type="radio" value="Male" name="gender" style="display: none; width:0px; height: 0px;"/>Male
                 </label>
             </div>
         </div>

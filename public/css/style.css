@@ -75,7 +75,9 @@
 .button-light-blue:disabled {
     background: #9AA5D4;
 }
-
+.button-light-blue::after{
+    background: #283F94;
+}
 .icon-background {
     width: 34px;
     height: 34px;
