@@ -1,46 +1,68 @@
-
 <html lang="en">
-            <head>
-                <title>FLYONE | Search</title>
-                <link rel="stylesheet" href="../css/style.css" />
-                <meta name="viewport" content=" width=device-width, initial-scale=1">
-                <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-                <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
-                <link rel="shortcut icon" href="/favicon.ico">
-                <link rel="manifest" href="/manifest.json">
-            </head>
 
-            <body>
-                <div id="headform">
-                    <div class="header" style="position: initial;">
-                        <div style="flex:1;margin: 2vw;">Menu</div>
-                        <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/flyone-logo.png" /></div>
-                        <div style="flex:1;margin: 2vw;">Login</div>
-                    </div>
+<head>
+    <title>FLYONE | Search</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <meta name="viewport" content=" width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+</head>
 
-                    <div style="text-align:center; font-family: Rubik; font-size: 30px; color: #FFFF;">
-                        <form>
-                            Book flight
-                            <div id="search-form">
-                                <input class="text-input" type="text" placeholder="From" />
-                                <input class="text-input" type="text" placeholder="To" />
-                                <input class="text-input" type="date" placeholder="Departure date" />
-                                <input class="text-input" type="date" placeholder="Return date" />
-                                <input class="text-input" type="number" placeholder="Adults" />
-                                <input class="text-input" type="text" placeholder="Promo code" />
-                            </div>
-                        </form>
-                            <button onclick="window.location='/date';" class="button-light-blue"> Search Flight</button>
-                        
-                    </div>
+<body>
+    <div id="headform">
+        <div class="header" style="position: initial;">
+            <div style="flex:1;margin: 2vw;">Menu</div>
+            <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/flyone-logo.png" /></div>
+            <div style="flex:1;margin: 2vw;">Login</div>
+        </div>
+
+        <div style="text-align:center; font-family: Rubik; font-size: 30px; color: #FFFF;">
+            <form>
+                Book flight
+                <div id="search-form">
+                    <input class="text-input" type="text" placeholder="From" />
+                    <input class="text-input" type="text" placeholder="To" />
+                    <input class="text-input" type="date" placeholder="Departure date" />
+                    <input class="text-input" type="date" placeholder="Return date" />
+                    <input class="text-input" type="number" placeholder="Adults" />
+                    <input class="text-input" type="text" placeholder="Promo code" />
                 </div>
+            </form>
+            <button onclick="window.location='/date';" class="button-light-blue"> Search Flight</button>
+
+        </div>
+    </div>
+
+    <script>
+        var request = window.indexedDB.open("my-database", 2);
+
+        request.onerror = function (event) {
+            console.log("DB error: ", event.target.error);
+        };
+
+        request.onsuccess = function (event) {
+            var db = event.target.result;
+            console.log("DB: ", db);
+            console.log("Object store names: ", db.objectStoreNames);
+        };
+
+        request.onupgradeneeded = function (event) {
+            var db = event.target.result;
+            db.createObjectStore("customers",
+                { keyPath: "passport_number" }
+            );
+        };
+    </script>
 
 
-                <div class="bottom-menu">
-                    <a id="bottom-boxes" href="./start">Home</a>
-                    <a id="bottom-boxes" href="./search">Book</a>
-                    <a id="bottom-boxes">Bookings</a>
-                    <a id="bottom-boxes">More</a>
-                </div>
-            </body>
-        </html>
+    <div class="bottom-menu">
+        <a id="bottom-boxes" href="./start">Home</a>
+        <a id="bottom-boxes" href="./search">Book</a>
+        <a id="bottom-boxes">Bookings</a>
+        <a id="bottom-boxes">More</a>
+    </div>
+</body>
+
+</html>
