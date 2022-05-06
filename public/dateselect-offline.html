@@ -3,10 +3,8 @@
 
 <head>
     <title>FLYONE | Select date</title>
-    <meta name="viewport" content="theme-color=#283F94, width=device-width, initial-scale=1">
+    <meta name="viewport" content=" width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
 </head>
@@ -15,7 +13,7 @@
     <div style="position: fixed; width: 100%; top: 0px; left: 0px; display: flex; flex-direction: column; ">
         <div class="header" style="position: unset; top: unset; left: unset; background-color: #0493DA;">
             <div style="flex:1;margin: 2vw;">Menu</div>
-            <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/flyone-logo.png" /></div>
+            <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/offline.png" /></div>
             <div style="flex:1;margin: 2vw;">Login</div>
         </div>
 
@@ -28,7 +26,7 @@
     </div>
 
     <div class="position: fixed; bottom:0px;">
-        Departure <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" /> Destination
+        Departure to Destination
         <div
             style="display: flex; flex-direction: row; justify-content: center; align-items: center; column-gap: 20px;">
             <a style="flex:1;"><img /></a>
@@ -44,30 +42,30 @@
         <div class="contbox" style="margin: 2%;">
             <div style="display:flex; flex-direction: row; text-align:center; margin:10px;">
                 <div style="flex:2">
-                    start
-                    <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" />
-                    dest
+                    Departure
+                    to
+                    Destination
                 </div>
                 <div style="color: #0493DA; font-weight: bold; flex:1;">selected <br /> € </div>
             </div>
 
             <div id="class-trio">
                 <div id="in">
-                    <img style=" width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-01.svg" />
+                    
                     <div id="loyaltylvl"> STANDARD </div>
                     <div style="font-size:2vw;"> No baggage</div>
                     <button onclick="window.location='/services';" class="button-light-blue"
                         style="width:40%; font-size: 2vw; justify-self: center; line-height: 2em;"> € Price</button>
                 </div>
                 <div id="in">
-                    <img style="width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-02.svg" />
+                    
                     <div id="loyaltylvl">LOYAL</div>
                     <div style="font-size:2vw;"> 20kg included</div>
                     <button onclick="window.location='/services';" class="button-light-blue"
                         style="width:40%; font-size: 2vw; justify-self: center; line-height: 2em;"> € Price</button>
                 </div>
                 <div id="in">
-                    <img style="width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-03.svg" />
+                
                     <div id="loyaltylvl"> ADVANTAGE </div>
                     <div style="font-size:2vw"> 10kg + 20kg included</div>
                     <button onclick="window.location='/services';" class="button-light-blue"
@@ -76,8 +74,6 @@
             </div>
         </div>
         <div class="contbox" style="margin: 2%;">
-            <img style="width:25%; align-self: center;padding-top: 5%;"
-                src="../icons-images/svgs/select flight/F1-FareLock48h.svg" />
             <h1>Lock Fare for 48 hours</h1>
             <div>
                 Need more time to decide? <br />
@@ -87,8 +83,6 @@
             <button class="button-light-blue"> Add € 6</button>
         </div>
         <div class="contbox" style="margin: 2%;justify-content: center;">
-            <img style="width:25%; align-self: center;padding-top: 5%;"
-                src="../icons-images/svgs/select flight/F1-133-Change-Flex.svg" />
             <h1>Change Flex</h1>
             <div>
                 Have your travel plans changed? <br />
@@ -102,7 +96,7 @@
     </div>
 
     <div class="contbox" id="summary">
-        <div>Departure <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" /> Destination </div>
+        <div>Departure to Destination </div>
         <div> Date: </div> 
         <div> Additional Services: </div> 
         <div>Total:€</div>
@@ -120,7 +114,9 @@
             <a id="bottom-boxes">More</a>
         </div>
     </div>
+    <script src="/js/trip-store.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/my-account.js"></script>
     <script>
         function summary(){
             document.getElementById("summary").style.display = "flex";
