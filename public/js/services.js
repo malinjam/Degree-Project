@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     // Show this booking
     showBooking();
@@ -88,3 +88,4 @@ $(document).ready(function() {
     });
   };
 
+*/
