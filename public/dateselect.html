@@ -33,10 +33,10 @@
         <div
             style="display: flex; flex-direction: row; justify-content: center; align-items: center; column-gap: 20px;">
             <a style="flex:1;"><img /></a>
-            <div class="contbox" id="dates">earlier <br /> date</div>
+            <div class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;"> &lt </div>
             <div class="contbox" id="dates"
                 style=" font-size: 70%;color: #ffff;background-color: #283F94; flex:4; padding: 1em;">DATE</div>
-            <div class="contbox" id="dates">later <br /> date</div>
+            <div class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;"> &gt </div>
             <a style="flex:1;">
                 <im />
             </a>
@@ -123,7 +123,9 @@
             <a id="bottom-boxes">More</a>
         </div>
     </div>
+    <script src="/js/trip-store.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/my-account.js"></script>
     <script>
         function summary() {
             document.getElementById("summary").style.display = "flex";

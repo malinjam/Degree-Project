@@ -35,8 +35,12 @@
         </div>
     </div>
 
+    <script src="/js/trip-store.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/my-account.js"></script>
+
     <script>
-        var request = window.indexedDB.open("my-database", 2);
+        var request = window.indexedDB.open("my-database", 4);
 
         request.onerror = function (event) {
             console.log("DB error: ", event.target.error);
@@ -50,9 +54,33 @@
 
         request.onupgradeneeded = function (event) {
             var db = event.target.result;
-            db.createObjectStore("customers",
-                { keyPath: "passport_number" }
-            );
+            if (!db.objectStoreNames.contains("customers")) {
+                db.createObjectStore("customers",
+                    { keyPath: "passport_number" }
+                );
+            }
+            if (!db.objectStoreNames.contains("exchange_rates")) {
+                var exchangeStore = db.createObjectStore("exchange_rates",
+                    { autoIncrement: true }
+                );
+                exchangeStore.createIndex("from_idx", "exchange_from", { unique: false });
+                exchangeStore.createIndex("to_idx", "exchange_to", { unique: false });
+
+                exchangeStore.transaction.oncomplete = function (event) {
+                    var exchangeRates = [
+                        { "exchange_from": "CAD", "exchange_to": "USD", "rate": 0.77 },
+                        { "exchange_from": "JPY", "exchange_to": "USD", "rate": 0.009 },
+                        { "exchange_from": "USD", "exchange_to": "CAD", "rate": 1.29 },
+                        { "exchange_from": "CAD", "exchange_to": "JPY", "rate": 81.60 },
+                    ];
+                    var exchangeStore = db
+                        .transaction("exchange_rates", "readwrite")
+                        .objectStore("exchange_rates");
+                    for (var i = 0; i < exchangeRates.length; i++) {
+                        exchangeStore.add(exchangeRates[i]);
+                    }
+                };
+            }
         };
     </script>
 

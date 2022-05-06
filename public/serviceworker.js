@@ -10,7 +10,10 @@ var CACHED_URLS = [
   "/icons-images/fonts/Rubik-VariableFont_wght.ttf",
   "/favicon.ico",
   "/icons-images/images/offline.png",
-  "/manifest.json"
+  "/manifest.json",
+
+  "/js/trip-store.js",
+  "/js/my-account.js"
 ];
 
 self.addEventListener("install", function(event) {    //instalation of serviceworker
