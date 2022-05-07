@@ -9,68 +9,68 @@
     "icons":[
         {
             "src": "favicon.ico",
-            "sizes": "512x512 256x256 128x128 96x96 64x64 48x48 32x32 24x24 16x16",
-            "type": "png",
+            "sizes": "256x256",
+            "type": "image/png",
             "purpose": "any"
         },
         {
             "src": "/icons-images/images/fly116.png",
             "sizes": "16x16",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly132.png",
             "sizes":"32x32" , 
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly148.png",
             "sizes": "48x48",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly216.png",
             "sizes": "16x16",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly232.png",
             "sizes": "32x32",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly248.png",
             "sizes": "48x48",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly1256.png", 
             "sizes": "256x256", 
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly1512.png", 
             "sizes": "512x512", 
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly2256.png",
             "sizes": "256x256",
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         },
         { 
             "src" : "/icons-images/images/fly2512.png",
             "sizes": "512x512", 
-            "type": "png",
+            "type": "image/png",
             "purpose": "any"
         }
     ]
