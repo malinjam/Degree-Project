@@ -15,6 +15,7 @@ var CACHED_URLS = [
 
 ];
 
+
 self.addEventListener("install", function(event) {    //instalation of serviceworker
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
@@ -56,3 +57,4 @@ self.addEventListener("activate", function(event) {   //clears redundant cache
     })
   );
 });
+
