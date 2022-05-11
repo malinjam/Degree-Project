@@ -1,19 +1,32 @@
 var CACHE_NAME = "fly-cache1"; //cache name and what to fetch
 var CACHED_URLS = [
-  "/offline.html",
-  "/dateselect-offline.html",
-  "/services-offline.html",
+ //offline pages
+ "/search-offline.html",
+ "/dateselect-offline.html",
+ "/services-offline.html",
+ "/offline.html",
 
-  "/css/style.css",
+ //manifest
+ "/manifest.json",
 
-  "/icons-images/fonts/Montserrat-VariableFont_wght.ttf",
-  "/icons-images/fonts/Rubik-VariableFont_wght.ttf",
-  "/favicon.ico",
-  "/icons-images/images/offline.png",
-  "/manifest.json",
+ //css
+ "/css/style.css",
 
-  "/js/trip-store.js",
-  "/js/my-account.js"
+ //fonts
+ "/icons-images/fonts/Montserrat-VariableFont_wght.ttf",
+ "/icons-images/fonts/Rubik-VariableFont_wght.ttf",
+
+ //images
+ "/icons-images/images/offline.png",
+ "/favicon.ico",
+ "/icons-images/images/flyone-logo.png",
+
+ //js
+ "/js/app.js",
+ "/js/trip-store.js",
+ "/js/my-account.js"
+
+
 ];
 
 self.addEventListener("install", function(event) {    //instalation of serviceworker
