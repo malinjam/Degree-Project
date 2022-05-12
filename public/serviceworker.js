@@ -23,13 +23,10 @@ var CACHED_URLS = [
 
   //js
   "/js/app.js",
-  "/js/trip-store.js",
-  "/js/my-account.js"
-
-
 ];
 
 self.addEventListener("install", function (event) {    //instalation of serviceworker
+
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll(CACHED_URLS);
@@ -73,3 +70,4 @@ self.addEventListener("activate", function (event) {   //clears redundant cache
     })
   );
 });
+

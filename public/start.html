@@ -3,17 +3,41 @@
 <head>
     <title>FLYONE | Home</title>
     <meta name="viewport" content=" width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#283F94">
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons-images/apple-touch-icon.png">
 </head>
 
 <body style="margin-bottom: 10vh;">
+    <script src="/js/app.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+    Notification.requestPermission().then(function(permission) {
+    if (permission === "granted") {
+      navigator.serviceWorker.getRegistration().then( registration =>{
+        var opt= {
+          title: "Welcome to the prototype!",
+          body: "Note: This is a protottype, no sensitive information should be entered here to book a flight with FlyOne please refer to https://flyone.eu/en/",
+          icon: "/icons-images/apple-touch-icon.png"
+        };
+        registration.showNotification("Welcome!", opt);
+      });
+        //var notification= new Notification( "  \n ");
+    } else if (permission === "denied") {
+      console.log("Notification permission denied");
+    } else if (permission === "default") {
+      console.log("May ask for permission");
+    }
+  });
+
+    </script>
     <div class="header">
         <div style="flex:1;margin: 2vw; text-size-adjust: auto;">Menu</div>
-        <div id="header-center"> <img style="width-max:40%; max-height: 100%;" src="../icons-images/images/flyone-logo.png" /></div>
+        <div id="header-center"> <img style="max-width:40%; max-height: 100%;" src="../icons-images/images/flyone-logo.png" /></div>
         <div style="flex:1;margin: 2vw;">Login</div>
     </div>
 
@@ -44,7 +68,7 @@
         <a id="bottom-boxes">More</a>
     </div>
 
-    <script src="/js/app.js"></script>
+    
 </body>
 
 </html>

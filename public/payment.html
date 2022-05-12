@@ -4,10 +4,12 @@
     <title>FLYONE | Payment</title>
     <meta name="viewport" content=" width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css" />
+    <meta name="theme-color" content="#283F94">
     <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons-images/apple-touch-icon.png">
 </head>
 
 <body style="margin-bottom: 10%;">
@@ -23,7 +25,7 @@
             <div style="background-color: #0493DA; width:100%; height: 2vh;">
             </div>
         </div>
-        </div>
+    </div>
 
     </div>
 
@@ -34,15 +36,16 @@
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="First Name" />
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="Family Name" />
         </div>
-        <div id="innerbox" style="justify-self: center; justify-content: center; display:flex;flex-direction: row; padding:0%; width: 20vw; height: 2em; border-width: 0px;">
+        <div id="innerbox"
+            style="justify-self: center; justify-content: center; display:flex;flex-direction: row; padding:0%; width: 20vw; height: 2em; border-width: 0px;">
             <div style=" flex:1;">
                 <label for="Female" class="button-light-blue" style="margin:0px; padding:10%;">Female
-                    <input type="radio" value="Female" name="gender" style="display: none; width:0px; height: 0px;"/>
+                    <input type="radio" value="Female" name="gender" style="display: none; width:0px; height: 0px;" />
                 </label>
             </div>
             <div style=" flex:1; ">
                 <label for="Male" class="button-light-blue" style="margin:0px; padding:10%; justify-content: right;">
-                    <input type="radio" value="Male" name="gender" style="display: none; width:0px; height: 0px;"/>Male
+                    <input type="radio" value="Male" name="gender" style="display: none; width:0px; height: 0px;" />Male
                 </label>
             </div>
         </div>
@@ -71,20 +74,21 @@
         </div>
 
         <div class="contbox" id="summary">
-            <div>Departure <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" /> Destination </div>
-            <div> Date: </div> 
-            <div> Additional Services: </div> 
+            <div>Departure <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" />
+                Destination </div>
+            <div> Date: </div>
+            <div> Additional Services: </div>
             <div>Total:€</div>
-            <button onclick="document.getElementById('summary').style.display='none';" class="button-blue" style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
+            <button onclick="document.getElementById('summary').style.display='none';" class="button-blue"
+                style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
         </div>
 
         <div style="display: flex; flex-direction: column; position: fixed; bottom: 0px; left: 0px;">
-            <div
-                style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
+            <div style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
                 <button onclick="summary();" id="sum">Summary</button>
                 <button
                     style="flex:1; font-size: 2vh; margin-left: 1%; padding: 1%; border-radius: 5px; border-color: #13235c;"
-                    type="submit" class="button-blue">Pay now</button>
+                    type="submit" onclick="notifyend()" class="button-blue">Pay now</button>
             </div>
             <div class="bottom-menu" style="width:100vw; position: unset; bottom: unset; left: unset;">
                 <a id="bottom-boxes" href="./start">Home</a>
@@ -93,19 +97,29 @@
                 <a id="bottom-boxes">More</a>
             </div>
         </div>
-        
 
         <script src="/js/app.js"></script>
-    <script>
-        function summary(){
-            console.log("summary func called");
-            document.getElementById("summary").style.display = "flex";
-        }
-        function close(){
-            console.log("close func called");
-            document.getElementById("summary").style.display = "none";
-        }
-    </script>
+        <script src="/js/payment.js"></script>
+        <script>
+            function summary() {
+                console.log("summary func called");
+                document.getElementById("summary").style.display = "flex";
+            }
+            function close() {
+                console.log("close func called");
+                document.getElementById("summary").style.display = "none";
+            }
+            function notifyend() {
+                navigator.serviceWorker.getRegistration().then(registration => {
+                    var opt = {
+                        title: "The end!",
+                        body: "Thank you for previewing the PWA booking flow prototype.",
+                        icon: "/icons-images/apple-touch-icon.png"
+                    };
+                    registration.showNotification("Goodbye!", opt);
+                });
+            }
+        </script>
 </body>
 
 </html>
