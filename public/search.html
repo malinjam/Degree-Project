@@ -20,28 +20,40 @@
             <div style="flex:1;margin: 2vw;">Login</div>
         </div>
 
+
+
         <div style="text-align:center; font-family: Rubik; font-size: 30px; color: #FFFF;">
-            <form>
+            <div>
                 Book flight
                 <div id="search-form">
-                    <input class="text-input" type="text" placeholder="From" />
-                    <input class="text-input" type="text" placeholder="To" />
-                    <input class="text-input" type="date" placeholder="Departure date" />
-                    <input class="text-input" type="date" placeholder="Return date" />
-                    <input class="text-input" type="number" placeholder="Adults" />
-                    <input class="text-input" type="text" placeholder="Promo code" />
+                    <input class="text-input" type="text" placeholder="From" name="departure"/>
+                    <input class="text-input" type="text" placeholder="To" name="destination"/>
+                    <input class="text-input" type="date" placeholder="Departure date" name="date"/>
+                   <!-- <input class="text-input" type="date" placeholder="Return date" />
+                    <input class="text-input" type="number" placeholder="Adults" />-->
+                    <input class="text-input" type="text" placeholder="Promo code" name="promo"/>
                 </div>
-            </form>
-            <button onclick="window.location='/date';" class="button-light-blue"> Search Flight</button>
+            </div>
+            <button onclick="save(); window.location='/date';" class="button-light-blue"> Search Flight</button>
 
         </div>
     </div>
-
+ <script src="/js/app.js"></script>
+ <script>
+    function save(){
+        var dep= document.getElementById("search-form").firstElementChild;   //prob seems to be that it thinkts the input is a div idk
+        for(let i=0; i<4; i++){
+            window.sessionStorage.setItem(dep.name, dep.value);
+            dep=dep.nextElementSibling;
+        }
+        window.sessionStorage.setItem('price', 0);
+    }
+</script>
     <!--<script src="/js/trip-store.js"></script> 
-    <script src="/js/my-account.js"></script>-->
-<script src="/js/app.js"></script>
+    <script src="/js/my-account.js"></script>
+   
     <script>
-        var request = window.indexedDB.open("my-database", 4);
+        var request = window.indexedDB.open("fly-database", 1);
 
         request.onerror = function (event) {
             console.log("DB error: ", event.target.error);
@@ -55,35 +67,35 @@
 
         request.onupgradeneeded = function (event) {
             var db = event.target.result;
-            if (!db.objectStoreNames.contains("customers")) {
-                db.createObjectStore("customers",
-                    { keyPath: "passport_number" }
+            /*if (!db.objectStoreNames.contains("bookings")) {
+                db.createObjectStore("bookings",
+                    { keyPath: "id" }
                 );
-            }
-            if (!db.objectStoreNames.contains("exchange_rates")) {
-                var exchangeStore = db.createObjectStore("exchange_rates",
+            }*/
+            if (!db.objectStoreNames.contains("bookings")) {
+                var currentBooking = db.createObjectStore("bookings",
                     { autoIncrement: true }
                 );
-                exchangeStore.createIndex("from_idx", "exchange_from", { unique: false });
-                exchangeStore.createIndex("to_idx", "exchange_to", { unique: false });
+                currentBooking.createIndex("current", "departure", { unique: false });
+               // exchangeStore.createIndex("to_hub", "arrival", { unique: false });
 
-                exchangeStore.transaction.oncomplete = function (event) {
-                    var exchangeRates = [
-                        { "exchange_from": "CAD", "exchange_to": "USD", "rate": 0.77 },
-                        { "exchange_from": "JPY", "exchange_to": "USD", "rate": 0.009 },
-                        { "exchange_from": "USD", "exchange_to": "CAD", "rate": 1.29 },
-                        { "exchange_from": "CAD", "exchange_to": "JPY", "rate": 81.60 },
+
+                currentBooking.transaction.oncomplete = function (event) {
+                    var bookingSpecs = [
+                        { "departure": "test", "arrival": "test", "date": "test", "promo": "jest", "id": "1" },
+                        { "departure": "hello", "arrival": "test", "date": "test", "promo": "jest", "id": "3" },
+                        { "departure": "what", "arrival": "test", "date": "test", "promo": "jest", "id": "5" },
                     ];
-                    var exchangeStore = db
-                        .transaction("exchange_rates", "readwrite")
-                        .objectStore("exchange_rates");
-                    for (var i = 0; i < exchangeRates.length; i++) {
-                        exchangeStore.add(exchangeRates[i]);
+                    var currentBooking = db
+                        .transaction("bookings", "readwrite")
+                        .objectStore("bookings");
+                    for (var i = 0; i < bookingSpecs.length; i++) {
+                        currentBooking.add(bookingSpecs[i]);
                     }
                 };
             }
         };
-    </script>
+    </script>-->
 
 
     <div class="bottom-menu">

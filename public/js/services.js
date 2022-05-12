@@ -63,6 +63,7 @@
       departure: departure,
       arrival: arrival, 
       date: date, 
+      price: price,
       promo: promo, 
       ppl:ppl,
       loyalty: loyalty, 

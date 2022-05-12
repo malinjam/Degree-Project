@@ -28,8 +28,13 @@
 
     </div>
 
+    <script>  
+    var keys = ["lock", "flex", largeBag, checkInBags, "seat", "mealType", "checkInType", "bagGuarantee", "bagPrio", "sport", "notice", "autoCheckIn", "onTime", "pets"];
+    var prices = [null, null, null, null, null, null, 12, 4, 3, 50, 4, null, 4, 60];
+    var values = [null, null, null, null, null, null, null, null, null, null, null, null, null, null]; </script>
+
     <h2>Baggage</h2>
-    <div><img src="" /> Small cabin bag included </div>
+    <div> Small cabin bag included </div>
 
     <div style="display:flex; flex-direction:column; margin:1%;">
         <button class="contbox" id="contservices">
@@ -47,7 +52,7 @@
                     <div>Select 10kg, 20kg or 30kg</div>
                 </div>
             </button>
-            <div id="checkinbags">
+            <div id="checkinbags"> 
                 Check-in Bags:
                 <div style="display:flex; flex-direction: row;">
                     <div id="in">
@@ -66,13 +71,13 @@
                 <div style="display:flex; flex-direction:row;">
                     <button onclick="document.getElementById('checkinbags').style.display='none';" class="button-blue" style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "
                         > Cancel</button>
-                    <button onclick="document.getElementById('checkinbags').style.display='none';"class="button-light-blue" style="width:50%"> Save </button>
+                    <button onclick="choose('CheckInBagNumb', ); document.getElementById('checkinbags').style.display='none';"class="button-light-blue" style="width:50%"> Save </button>
                 </div>
 
             </div>
             </button>
         </div>
-        <h2>Seats and Meals</h2>
+        <h2>Seats and Meals</h2>  <!--              REVAMP NECESSAY BEFORE LOCAL STORAGE     -->
         <div class="contbox">
             <button onclick="document.getElementById('seats').style.display ='inline';" class="contbox" id="contservices" style="box-shadow: none;">
                 <img src="../icons-images/svgs/loader icon/loader-type1-4.svg" id="extras" />
@@ -577,20 +582,20 @@
 
         Meals
         <div style="display:flex; flex-direction:row; ">
-            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;" onselect="window.sessionStorage.setItem('meal', 'classic'); increment(15)">
                 <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw; line-height: 5em;">Classic</div>
             </radio>
-            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;" onselect="window.sessionStorage.setItem('meal', 'medeterranean'); increment(15)">
                 <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Medeterranean</div>
             </radio>
 
-            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;">
+            <radio class="contbox" style="flex:1; justify-content: center;align-items: center;" onselect="window.sessionStorage.setItem('meal', 'traditional'); increment(15)">
                 <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Traditional</div>
             </radio>
         </div>
 
         <h2> Check-in</h2>
-        <div> <img style="height:1em;" src="../icons-images/svgs/loader icon/loader-type1-2.svg" /> Online check-in free
+        <div><img style="height:1em;" src="../icons-images/svgs/loader icon/loader-type1-2.svg" /> Online check-in free
             24h</div>
         <div style="display:flex; flex-direction: row; justify-content: center;">
             <button class="contbox"
@@ -670,7 +675,7 @@
         <div
             style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
             <button onclick="summary();" id="sum">Summary</button>
-            <button onclick="window.location='/payment';"
+            <button onclick="next(); window.location='/payment';"
                 style="flex:1; font-size: 2vh; margin-left: 1%; padding: 1%; border-radius: 5px; border-color: #13235c;"
                 type="submit" class="button-blue">Next</button>
         </div>
@@ -682,12 +687,30 @@
         </div>
     </div>
 
-    <!--<script src="/js/trip-store.js"></script>
-    <script src="/js/my-account.js"></script>-->
+
     <script src="/js/app.js"></script>
     <script>
-        function summary(){
-            document.getElementById("summary").style.display="flex";
+         function summary() {
+            document.getElementById("price").innerHTML = "Total: €"+sessionStorage.getItem("price");
+            var services;
+            if(sessionStorage.getItem('flex')){ }
+
+            document.getElementById("summary").style.display = "flex";
+        }
+
+        function increment(num){
+            var p= parseInt(sessionStorage.getItem('price'));
+            sessionStorage.setItem('price', (p+num));
+        }
+
+        function next(){
+            
+            for(let i=0; i<values.length; i++){
+                if(values[i]!=null){
+                    window.sessionStorage.setItem(keys[i], values[i]);
+                }
+
+            }
         }
     </script>
 </body>
