@@ -22,6 +22,10 @@ app.get("/search", function(req, res) {
 });
 
 app.get("/date", function(req, res) {
+  /*  var arrival = req.query.ar;
+    var departure = req.query.dep;
+    var date = req.query.date;
+    var date = req.query.price;*/
     res.sendFile("dateselect.html", {root: "public"});
 });
 
