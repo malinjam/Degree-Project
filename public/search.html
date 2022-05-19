@@ -1,4 +1,4 @@
-<html lang="en">
+<!DOCTYPE html>
 
 <head>
     <title>FLYONE | Search</title>
@@ -32,13 +32,22 @@
                     <input class="text-input" type="text" placeholder="Promo code" name="promo" />
                 </div>
             </div>
-            <button onclick="save(); window.location='/date';" class="button-light-blue"> Search Flight</button>
+            <button onclick="save(); location='/date';" class="button-light-blue"> Search Flight</button>
         </div>
     </div>
     <div style=" margin:0%; padding:0%; left:0px; top: 30vh; bottom: 10vh; right:0px; position: absolute; z-index: -1;">
-        <iframe id="map" loading="lazy"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9705428.773994694!2d11.23872748919081!3d53.051063471735866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x37d1d6305749dd3c!2zQ2hpyJlpbsSDdSwgTW9sZG92YQ!5e0!3m2!1sen!2sse!4v1652875852876!5m2!1sen!2sse"></iframe>
-    </div>
+        <iframe id="map"
+        width="100%"
+        height="100%"
+        style="border:0"
+        loading="lazy"
+        onloadstart="locate();"
+        onerror="err();"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178
+          &center=47.0657328,28.8958778
+          &zoom=5">
+      </iframe> </div>
 
     <script src="/js/app.js"></script>
     <script>
@@ -52,57 +61,31 @@
         }
 
         const map= document.getElementById("map");
-        map.addEventListener("load", );
 
-
-    </script>
-    <!--<script src="/js/trip-store.js"></script> 
-    <script src="/js/my-account.js"></script>
-   
-    <script>
-        var request = window.indexedDB.open("fly-database", 1);
-
-        request.onerror = function (event) {
-            console.log("DB error: ", event.target.error);
-        };
-
-        request.onsuccess = function (event) {
-            var db = event.target.result;
-            console.log("DB: ", db);
-            console.log("Object store names: ", db.objectStoreNames);
-        };
-
-        request.onupgradeneeded = function (event) {
-            var db = event.target.result;
-            /*if (!db.objectStoreNames.contains("bookings")) {
-                db.createObjectStore("bookings",
-                    { keyPath: "id" }
-                );
-            }*/
-            if (!db.objectStoreNames.contains("bookings")) {
-                var currentBooking = db.createObjectStore("bookings",
-                    { autoIncrement: true }
-                );
-                currentBooking.createIndex("current", "departure", { unique: false });
-               // exchangeStore.createIndex("to_hub", "arrival", { unique: false });
-
-
-                currentBooking.transaction.oncomplete = function (event) {
-                    var bookingSpecs = [
-                        { "departure": "test", "arrival": "test", "date": "test", "promo": "jest", "id": "1" },
-                        { "departure": "hello", "arrival": "test", "date": "test", "promo": "jest", "id": "3" },
-                        { "departure": "what", "arrival": "test", "date": "test", "promo": "jest", "id": "5" },
-                    ];
-                    var currentBooking = db
-                        .transaction("bookings", "readwrite")
-                        .objectStore("bookings");
-                    for (var i = 0; i < bookingSpecs.length; i++) {
-                        currentBooking.add(bookingSpecs[i]);
-                    }
-                };
+        function locate(){
+            var longlat;
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(work, fail);
+            }else{
+               // map.innerHTML="Geolocation is not supported."
             }
-        };
-    </script>-->
+}
+
+function work(position){
+    map.src= "https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178&center="+
+    position.coords.latitude+","+position.coords.longitude+"&zoom=5";
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+}
+function fail(err){
+    console.log(err);
+}
+
+        function err(){
+            map.innerHTML="The Map cannot be displayed at this time due to an error.";
+        }
+        
+    </script>
 
 
     <div class="bottom-menu">

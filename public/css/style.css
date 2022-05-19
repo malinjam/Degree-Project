@@ -351,6 +351,7 @@ a {
 #seats{
     display: none;
     justify-content: center;
+    overflow-y: scroll;
 }
 #seatgrid{
     display: grid;
