@@ -20,3 +20,5 @@ var showBookingNotification = function() {
       });
     }
   };
+
+  
