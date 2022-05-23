@@ -117,25 +117,21 @@
             </div>
 
 
+
+           
             <div class="seatgrid">
                 <div class="seat-row">
-                    <label class="seat-icon premium" for>€25
-                    </label>
-                    <div class="seat-icon premium">€25
-                    </div>
-                    <div class="seat-icon premium">€25
-                    </div>
+                    <input class="radio" name="seat" type="radio" id="A1" value="A1"/><label class="seat-icon premium" for="A1">A1</label>
+                    <input class="radio" name="seat" type="radio" id="B1" value="B1"/><label class="seat-icon premium" for="B1">B1</label>
+                    <input class="radio" name="seat" type="radio" id="C1" value="C1"/><label class="seat-icon premium" for="C1">C1</label>
                 </div>
                 <div style="text-align: center;"> 1 </div>
                 <div class="seat-row">
-                    <div class="seat-icon premium">€25
-                    </div>
-                    <div class="seat-icon premium">€25
-                    </div>
-                    <div class="seat-icon premium">€25
-                    </div>
+                    <input class="radio" name="seat" type="radio" id="D1" value="D1"/><label class="seat-icon premium" for="D1">D1</label>
+                    <input class="radio" name="seat" type="radio" id="E1" value="E1"/><label class="seat-icon premium" for="E1">E1</label>
+                    <input class="radio" name="seat" type="radio" id="F1" value="F1"/><label class="seat-icon premium" for="F1">F1</label>
                 </div>
-                <div class="seat-row">
+               <!-- <div class="seat-row">
                     <div class="seat-icon"> €18</div>
                     <div class="seat-icon front">€18
                     </div>
@@ -486,15 +482,13 @@
                     <div class="seat-icon">€6</div>
                     <div class="seat-icon">€6</div>
                     <div class="seat-icon">€6</div>
-                </div>
-
+                </div>-->
             </div>
-
-
             <div style="display:flex; flex-direction:row;">
                 <button class="button-blue" style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "
-                    onclick="document.getElementById('seats').style.display='none';"> Cancel</button>
-                <button onclick="document.getElementById('seats').style.display='none';" class="button-light-blue"
+                    onclick="document.getElementsByTagName('input').style.display='none';"> Cancel</button>
+
+                <button onclick="seatSave();" class="button-light-blue" id="seatSaveBtn"
                     style="width:50%"> Save </button>
             </div>
         </div>
@@ -504,14 +498,14 @@
 
     Meals
     <div id="meals">
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="mealsSelect(0)">
+        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="specSelect(specValues[0], 0, 12)">
             <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw; line-height: 5em;">Classic</div>
         </button>
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="mealsSelect(1)">
+        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="specSelect(specValues[1], 0, 12)">
             <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Medeterranean</div>
         </button>
 
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="mealsSelect(2)">
+        <button class="contbox" style="flex:1; justify-content: center;align-items: center;" onclick="specSelect(specValues[2], 0, 12)">
             <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Traditional</div>
         </button>
     </div>
@@ -519,13 +513,13 @@
     <h2> Check-in</h2>
     <div><img style="height:1em;" src="../icons-images/svgs/loader icon/loader-type1-2.svg" /> Online check-in free
         24h</div>
-    <div id="checkInType">
-        <button class="contbox" style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
+    <div id="checkIn">
+        <button class="contbox checkInBtn" onclick="specSelect(specValues[3], 1, 15)">
             <img src="../icons-images/svgs/select specs/F1-133-Airport-Check-in.svg" class="extras"
                 style="height: 50%;width:auto;" />
             <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Airport Check-in</div>
         </button>
-        <button class="contbox" style="justify-content: center; text-align: center; align-items: center; padding: 3%;">
+        <button class="contbox checkInBtn" onclick="specSelect(specValues[4],1,15)">
             <img src="../icons-images/svgs/select specs/F1-133-Early-Checking.svg" class="extras"
                 style="height: 50%; width:auto;" />
             <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Early Check-in</div>
@@ -603,7 +597,7 @@
             <div id="pets"> </div>
 
             <div id="seat"> </div>
-            <div id="meals"> </div>
+            <div id="meal"> </div>
             <div id="checkInType"> </div>
             <div id="checkInBags"> </div>
 
@@ -631,9 +625,9 @@
 
     <script src="/js/app.js"></script>
     <script>//"checkInBagsnr", "checkInBagstype", "seat", "mealType", "checkInType",
-        var keys = ["lock", "flex", "largeBag", "bagGuarantee", "bagPrio", "sport", "notice", "autoCheckIn", "onTime", "pets"];
-        var keysTitle = ["Large Bag: €", "Bag Guarantee: €", "Bag Priority: €", "Sport Equipment: €", "Priority Notice: €", "Automated Check-In: €", "On-Time Guarantee: €", "Pets: €"];
-        var prices = [6, 30, 12, 4, 3, 50, 4, 6, 4, 60];
+        var keys = ["flex", "lock", "largeBag", "bagGuarantee", "bagPrio", "sport", "notice", "autoCheckIn", "onTime", "pets", "meal", "checkInType"];
+        var keysTitle = ["Change Flex: €","Fare Lock : €", "Large Bag: €", "Bag Guarantee: €", "Bag Priority: €", "Sport Equipment: €", "Priority Notice: €", "Automated Check-In: €", "On-Time Guarantee: €", "Pets: €", "Meal: €", "Check-In: €"];
+        var prices = [30, 6, 12, 4, 3, 50, 4, 6, 4, 60, 12, 15];
 
         document.getElementById("route").innerHTML = sessionStorage.getItem("departure") + " <img style='height: 1em;' src='../icons-images/svgs/start/flight-twoway-icon2.svg' />" + sessionStorage.getItem("destination");
         document.getElementById("dat").innerHTML = sessionStorage.getItem("date");
@@ -648,8 +642,8 @@
         const other2 = 6;
 
         function show(i) {
-            if (sessionStorage.getItem(keys[i]) == "true") {
-                console.log(keys[i] + " true")
+            if (sessionStorage.getItem(keys[i]) != "false" && sessionStorage.getItem(keys[i]) != "null" && sessionStorage.getItem(keys[i]) != null) {
+                console.log(keys[i] + " true "+ i)
                 document.getElementById(keys[i]).style.display = "block";
                 document.getElementById(keys[i]).innerHTML = keysTitle[i] + prices[i];
             } else {
@@ -664,7 +658,10 @@
             for (var i = 0; i < keysTitle.length; i++) {
                 show(i)
             }
-
+            if(sessionStorage.getItem("seat")!=null && sessionStorage.getItem("seat")!="null"){
+                var s=sessionStorage.getItem("seat");
+                document.getElementById("seat").innerHTML= "Seat: "+s[0]+" "+ s[1];
+            }
             document.getElementById("price").innerHTML = "Total: €" + sessionStorage.getItem("price");
             document.getElementById("summary").style.display = "flex";
 
@@ -709,30 +706,50 @@
         }
 
         var formId = ["checkInBags", "seats", "meals", "checkInType"]
-        var meals = ["Classic", "Medereranean", "Traditional"]
+        var specValues = ["Classic", "Medereranean", "Traditional", "Airport", "Early"]
+        var specKeys=["meal", "checkInType", "seat"]
         var priceBags = [40, 55, 85];
         var seatPrices = [6, 8, 11, 18, 25];
-        var checkInTypePrice = 15;
 
-        function mealsSelect(i) {
-            if (sessionStorage.getItem("meal") == "null" || sessionStorage.getItem("meal") == null) {
-                increment(15);
-                sessionStorage.setItem("meal", meals[i]);
+        function specSelect(value, key, price) {
+            if (sessionStorage.getItem(specKeys[key]) == "null" || sessionStorage.getItem(specKeys[key]) == null) {
+                increment(price);
+                sessionStorage.setItem(specKeys[key], value);
             }
-            else if (sessionStorage.getItem("meal") == meals[i]) {
-                decrement(15);
-                sessionStorage.setItem("meal", "null");
+            else if (sessionStorage.getItem(specKeys[key]) == value) {
+                decrement(price);
+                sessionStorage.setItem(specKeys[key], "null");
             } else {
-                sessionStorage.setItem("meal", meals[i]);
+                sessionStorage.setItem(specKeys[key], value);
             }
 
         }
-        function saveSpec(i) {
-        }
-
-        function bagsupdate() {
+        function bagsUpdate(i) {
+            
 
         }
+
+        function seatSave() {
+            var seats= document.getElementsByTagName("input");
+            var saved= sessionStorage.getItem("seat");
+
+           for(var i=0; i<seats.length;i++){
+            if(seats[i].checked){
+                var selected= seats[i].value;
+                console.log(selected);
+                console.log(selected[0]);
+                console.log(selected[1]);
+                if(saved==null || saved=="null")
+                sessionStorage.setItem("seat", selected);
+                if(selected[1]==1){
+                increment(25);}                     //tmorrow agenda: continue for rest of seats + check in bags + payment switch
+                document.getElementById('seats').style.display='none';
+            }else{
+                document.getElementById("seatSaveBtn").innerHTML="No seat selected"
+            }
+        }
+        }
+
     </script>
 </body>
 

@@ -355,7 +355,7 @@ a {
 }
 
 #seats {
-    display: none;
+    display: unset;
     justify-content: center;
     overflow-y: scroll;
 }
@@ -378,9 +378,9 @@ a {
     border-radius: 10px;
     border-width: 5px;
     border-style: solid;
-    width: 1vw;
     height: 2vh;
     flex: 1;
+    width: 100%;
     margin: 1%;
     font-size: 2vw;
 }
@@ -390,7 +390,7 @@ a {
     font-size: 2vw;
 }
 
-.seat-icon:not(.example):hover {
+.seat-icon:not(.example)::after {
     padding: 1%;
     border-color: #47864F;
     color: #47864F;
@@ -423,11 +423,14 @@ a {
     flex-direction: column;
     position: fixed;
     width: 70%;
-    margin: 13%;
-    top: 25vh;
+    top: 0;
+    left: 0;
+    justify-self: center;
     align-self: center;
+    margin: 13%;
     padding: 2%;
     font-size: 3vw;
+    z-index: 1;
 }
 
 #sum {
@@ -460,8 +463,20 @@ a {
     display: flex;
     flex-direction: row;
 }
-#checkInType{
-    display:flex; 
-    flex-direction: row; 
+
+#checkIn {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
+}
+
+.checkInBtn {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 3%;
+}
+
+.radio{
+    display: none;
 }
