@@ -358,6 +358,7 @@ a {
     display: unset;
     justify-content: center;
     overflow-y: scroll;
+    height: 70%;
 }
 
 .seatgrid {
@@ -378,7 +379,7 @@ a {
     border-radius: 10px;
     border-width: 5px;
     border-style: solid;
-    height: 2vh;
+    padding:5%;
     flex: 1;
     width: 100%;
     margin: 1%;
@@ -418,7 +419,7 @@ a {
     background-color: #E0AF5C;
 }
 
-#summary {
+.modal{
     display: none;
     flex-direction: column;
     position: fixed;
