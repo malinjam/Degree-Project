@@ -355,14 +355,15 @@ a {
 }
 
 #seats {
-    display: unset;
+    display: none;
     justify-content: center;
-    overflow-y: scroll;
     height: 70%;
 }
 
 .seatgrid {
     display: grid;
+    overflow-y: scroll;
+    height: 60%;
     grid-template-columns: 45% 10% 45%;
     grid-template-rows: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1;
 }
@@ -370,6 +371,11 @@ a {
 .seat-row {
     display: flex;
     flex-direction: row;
+}
+
+#plus{
+    display:flex; 
+    flex-direction:row
 }
 
 .seat-icon {

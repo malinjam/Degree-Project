@@ -40,7 +40,7 @@
         </button>
     </div>
     <div class="contbox">
-        <button onclick="document.getElementById('checkInBags').style.display ='inline';" id="contservices"
+        <button onclick="loadBagsInfo()" id="contservices"
             class="contbox" style="box-shadow: none;">
             <img src="../icons-images/svgs/select bags/F1-Icon-03.svg" class="extras" />
             <div class="textflex">
@@ -53,28 +53,34 @@
             <div style="display:flex; flex-direction: row;">
                 <div id="in">
                     10kg
-                    <div style="display:flex; flex-direction:row"><button class="button-blue"
-                            onclick="bagsUpdate(1, 10)">+</button> <button class="button-blue"
-                            onclick="bagsUpdate(-1, 10)">-</button></div>
+                    <div style="display:flex; flex-direction:row">
+                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr1bags', 40)">+</button>
+                        <div id="nr1bags"> 0 </div>
+                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr1bags', 40)">-</button>
+                    </div>
                 </div>
                 <div id="in">
                     20kg
-                    <div style="display:flex; flex-direction:row"><button class="button-blue"
-                            onclick="bagsUpdate(1, 10)">+</button> <button class="button-blue"
-                            onclick="bagsUpdate(-1, 10)">-</button></div>
+                    <div style="display:flex; flex-direction:row">
+                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr2bags', 55)">+</button>
+                        <div id="nr2bags"> 0 </div>
+                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr2bags', 55)">-</button>
+                    </div>
                 </div>
                 <div id="in">
                     30kg
-                    <div style="display:flex; flex-direction:row"><button class="button-blue"
-                            onclick="bagsUpdate(1, 10)">+</button> <button class="button-blue"
-                            onclick="bagsUpdate(-1, 10)">-</button></div>
+                    <div style="display:flex; flex-direction:row">
+                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr3bags', 85)">+</button>
+                        <div id="nr3bags"> 0 </div>
+                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr3bags', 85)">-</button>
+                    </div>
                 </div>
             </div>
             <div style="display:flex; flex-direction:row;">
-                <button onclick="document.getElementById('checkInBags').style.display='none';" class="button-blue"
+                <button onclick="cancelBags()" class="button-blue"
                     style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "> Cancel</button>
                 <button
-                    onclick="choose('CheckInBagNumb', ); document.getElementById('checkInBags').style.display='none';"
+                    onclick="document.getElementById('checkInBags').style.display='none';"
                     class="button-light-blue" style="width:50%"> Save </button>
             </div>
 
@@ -92,7 +98,7 @@
                 <div>Travel with family and friends.</div>
         </button>
     </div>
-    
+
     <div class="contbox modal" id="seats">
         Seats:
         <div style="display: flex; flex-direction: row;">
@@ -106,7 +112,6 @@
             <div class="seat-icon example" style=" border-color: #929496;  color: #929496; background-color: #C9CACB">
                 Taken</div>
         </div>
-
         <div style="display: flex; flex-direction: row; padding-bottom: 2%;">
             <div class="seat-icon example wing">
                 Extra Room</div>
@@ -657,11 +662,14 @@
                     for="F30">F30</label>
             </div>
         </div>
-        <div style="display:flex; flex-direction:row;">
-            <button class="button-blue" style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "
+
+        <div style="display:flex; flex-direction:row; padding-top: 5%;">
+            <button class="button-blue"
+                style="border-width: 0px; width: 50%; line-height: 2em; margin-left: 2%;margin-right: 2%;"
                 onclick="cancel()"> Cancel Seat</button>
 
-            <button onclick="seatSave();" class="button-light-blue" id="seatSaveBtn" style="width:50%"> Save
+            <button onclick="seatSave();" class="button-light-blue" id="seatSaveBtn"
+                style="width:50%; margin: 0px; margin-left: 2%;margin-right: 2%;"> Save
             </button>
         </div>
     </div>
@@ -883,7 +891,7 @@
         var formId = ["checkInBags", "seats", "meals", "checkInType"]
         var specValues = ["Classic", "Medereranean", "Traditional", "Airport", "Early"]
         var specKeys = ["meal", "checkInType", "seat"]
-        var priceBags = [40, 55, 85];
+       
         var seatPrices = [6, 8, 11, 18, 25];
 
         function specSelect(value, key, price) {
@@ -899,9 +907,73 @@
             }
 
         }
-        function bagsUpdate(i) {
+
+        if (sessionStorage.getItem("bagstotalnr") == null) {
+            sessionStorage.setItem("bagstotalnr", 0)
+        }
+        if (sessionStorage.getItem("nr1bags") == null) {
+            sessionStorage.setItem("nr1bags", 0)
+        }
+        if (sessionStorage.getItem("nr2bags") == null) {
+            sessionStorage.setItem("nr2bags", 0)
+        }
+        if (sessionStorage.getItem("nr3bags") == null) {
+            sessionStorage.setItem("nr3bags", 0)
+        }
+
+        function bagsUpdate(nr, type, cost) {
+            var total = parseInt(sessionStorage.getItem("bagstotalnr"));
+            console.log(total);
+            var stored = parseInt(sessionStorage.getItem(type));
+            console.log(stored);
+
+            sessionStorage.setItem("bagstotalnr", (total+nr));
+            sessionStorage.setItem(type, (stored+nr));
+            console.log(sessionStorage.getItem(type));
+            increment((nr * cost));
+            document.getElementById(type).innerHTML = (stored+nr);
+            document.getElementsByClassName("plus").disabled = false;
+            document.getElementsByClassName("minus").disabled = false;
+            checkBounds(total+nr);
 
 
+        }
+
+        function checkBounds(total){
+
+            if (total == 3 ) {
+                var plusBtn= document.getElementsByClassName("plus");
+                for(var i=0; i<3; i++){plusBtn[i].disabled = true;}
+            } else if (total == 0) {
+                var minusBtn= document.getElementsByClassName("minus")
+                for(var i=0; i<3; i++){minusBtn[i].disabled = true;}
+            } else{
+                var minusBtn= document.getElementsByClassName("minus")
+                for(var i=0; i<3; i++){minusBtn[i].disabled = false;}
+
+                var plusBtn= document.getElementsByClassName("plus");
+                for(var i=0; i<3; i++){plusBtn[i].disabled = false;}
+            }
+        }
+
+        function loadBagsInfo(){
+            checkBounds(sessionStorage.getItem("bagstotalnr"));
+            var types= ["nr1bags", "nr2bags", "nr3bags"];
+            for(var i=0; i<3; i++){
+                document.getElementById(types[i]).innerHTML = sessionStorage.getItem(types[i]);
+            }
+            document.getElementById('checkInBags').style.display ='inline';
+        }
+
+        function cancelBags(){
+            var types= ["nr1bags", "nr2bags", "nr3bags"];
+            for(var i=0; i<3; i++){
+                document.getElementById(types[i]).innerHTML = 0;
+                sessionStorage.setItem(types[i], 0);
+            }
+            sessionStorage.setItem("bagstotalnr", 0);
+
+            document.getElementById('checkInBags').style.display='none';
         }
 
         function seatSave() {
