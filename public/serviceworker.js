@@ -1,6 +1,7 @@
 var CACHE_NAME = "fly-cache1"; //cache name and what to fetch
 var CACHED_URLS = [
   //offline pages
+  "/start.html",
   "/search-offline.html",
   "/dateselect-offline.html",
   "/services-offline.html",
@@ -20,9 +21,14 @@ var CACHED_URLS = [
   "/icons-images/images/offline.png",
   "/favicon.ico",
   "/icons-images/images/flyone-logo.png",
+  "/icons-images/svgs/start/flight-twoway-icon2.svg",
+  "/icons-images/svgs/select flight/F1-133-01.svg",
+  "/icons-images/svgs/select flight/F1-133-02.svg",
+  "/icons-images/svgs/select flight/F1-133-03.svg",
+  "/icons-images/apple-touch-icon.png",
 
   //js
-  "/js/app.js",
+  "/js/app.js"
 ];
 
 self.addEventListener("install", function (event) {    //instalation of serviceworker
@@ -42,6 +48,8 @@ self.addEventListener("fetch", function (event) {    // fetches offline pages if
       return caches.match(event.request).then(function (response) {
         if (response) {
           return response;
+        } else if (url.pathname == "/start" || url.pathname == "/") {
+          return caches.match("/start.html");
         } else if (url.pathname == "/search") {
           return caches.match("/search-offline.html");
         } else if (url.pathname === "/date") {

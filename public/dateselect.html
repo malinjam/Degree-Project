@@ -14,11 +14,11 @@
 
 
 <body>
-    <div style="position: fixed; width: 100%; top: 0px; left: 0px; display: flex; flex-direction: column;">
+    <div id="headProgress">
         <div class="header" style="position: unset; top: unset; left: unset;">
-            <div style="flex:1;margin: 2vw;">Menu</div>
+            <div id="menu">Menu</div>
             <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/flyone-logo.png" /></div>
-            <div style="flex:1;margin: 2vw;">Login</div>
+            <div id="login">Login</div>
         </div>
 
         <div style="background-color: #283F94; height: 2vh;">
@@ -27,7 +27,6 @@
         </div>
     </div>
 
-    </div>
     
     <div>
         <div id="route1"> </div>
@@ -47,26 +46,23 @@
         </div>
 
         <div id="class-trio">
-            <div id="in">
-                <img style=" width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-01.svg" />
+            <div class="in">
+                <img class="lvlImg" src="../icons-images/svgs/select flight/F1-133-01.svg" />
                 <div id="loyaltylvl"> STANDARD </div>
                 <div style="font-size:2vw;"> No baggage</div>
-                <button onclick="increment(100); sessionStorage.setItem('ticket', 100); window.location='/services';" class="button-light-blue"
-                    style="width:40%; font-size: 2vw; justify-self: center; line-height: 2em;"> €100 </button>
+                <button onclick="increment(100); sessionStorage.setItem('ticket', 100); window.location='/services';" class="button-light-blue loyaltylvlprice"> €100 </button>
             </div>
-            <div id="in">
-                <img style="width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-02.svg" />
+            <div class="in">
+                <img class="lvlImg" src="../icons-images/svgs/select flight/F1-133-02.svg" />
                 <div id="loyaltylvl">LOYAL</div>
                 <div style="font-size:2vw;"> 20kg included</div>
-                <button onclick="increment(150);sessionStorage.setItem('ticket', 150); window.location='/services';" class="button-light-blue"
-                    style="width:40%; font-size: 2vw; justify-self: center; line-height: 2em;"> €150 </button>
+                <button onclick="increment(150);sessionStorage.setItem('ticket', 150); window.location='/services';" class="button-light-blue loyaltylvlprice"> €150 </button>
             </div>
-            <div id="in">
-                <img style="width:50%; height: 50%;" src="../icons-images/svgs/select flight/F1-133-03.svg" />
+            <div class="in">
+                <img class="lvlImg" src="../icons-images/svgs/select flight/F1-133-03.svg" />
                 <div id="loyaltylvl"> ADVANTAGE </div>
-                <div style="font-size:2vw"> 10kg + 20kg included</div>
-                <button onclick=" increment(200);sessionStorage.setItem('ticket', 200); window.location='/services';" class="button-light-blue"
-                    style="width:40%; font-size: 2vw; justify-self: center; line-height: 2em;"> €200 </button>
+                <div class="loyaltylvltxt"> 10kg + 20kg included</div>
+                <button onclick=" increment(200);sessionStorage.setItem('ticket', 200); window.location='/services';" class="button-light-blue loyaltylvlprice"> €200 </button>
             </div>
         </div>
     </div>
@@ -97,7 +93,7 @@
     </div>
     </div>
 
-    <div class="contbox modal" id="summary" style=" height: 50%;">
+    <div class="contbox modal" id="summary" style=" height: fit-content;">
         <h4>Summary</h4>
         <div id="route3"> route</div>
         <div>Date: <span id="dat2" type="date">date </span> </div>
@@ -125,71 +121,72 @@
 
     <script src="/js/app.js"></script>
     <script>
-        var keys=["lock", "flex"];
-        var prices=[6,30];
 
-        function summary() {
-            
-            if(sessionStorage.getItem('lock') == "true"){
-                document.getElementById("lock").style.display="inline";
-                document.getElementById("lock").innerHTML="Fare Lock : €6";
-            }else{
-                document.getElementById("lock").style.display="none";
-            }
+var keys=["lock", "flex"];
+var prices=[6,30];
 
-            if(sessionStorage.getItem('flex') == "true"){
-                document.getElementById("flex").style.display="inline";
-                document.getElementById("flex").innerHTML="Change Flex: €30";
-            }else{
-                document.getElementById("flex").style.display="none";
-            }
+function summary() {
+    
+    if(sessionStorage.getItem('lock') == "true"){
+        document.getElementById("lock").style.display="inline";
+        document.getElementById("lock").innerHTML="Fare Lock : €6";
+    }else{
+        document.getElementById("lock").style.display="none";
+    }
 
-            document.getElementById("price").innerHTML = "Total: €"+sessionStorage.getItem("price");
-            document.getElementById("summary").style.display = "flex";
+    if(sessionStorage.getItem('flex') == "true"){
+        document.getElementById("flex").style.display="inline";
+        document.getElementById("flex").innerHTML="Change Flex: €30";
+    }else{
+        document.getElementById("flex").style.display="none";
+    }
 
-        }
+    document.getElementById("price").innerHTML = "Total: €"+sessionStorage.getItem("price");
+    document.getElementById("summary").style.display = "flex";
 
-        function decrement(sub) {
-            var c = parseInt(sessionStorage.getItem('price'));
-            sessionStorage.setItem('price', (c - sub));
-        }
+}
 
-        function increment(num){
-            var p= parseInt(sessionStorage.getItem('price'));
-            sessionStorage.setItem('price', (p+num));
-        }
+function decrement(sub) {
+    var c = parseInt(sessionStorage.getItem('price'));
+    sessionStorage.setItem('price', (c - sub));
+}
 
-        function save(i) {
-            if (sessionStorage.getItem(keys[i]) == "true") {
-                sessionStorage.setItem(keys[i], false);
-                document.getElementById(i).style.backgroundColor="#0493DA"
-                decrement(prices[i]);
-            } else {
-                sessionStorage.setItem(keys[i], true);
-                document.getElementById(i).style.backgroundColor="#283F94"
-                increment(prices[i]);
-            }
-        }
+function increment(num){
+    var p= parseInt(sessionStorage.getItem('price'));
+    sessionStorage.setItem('price', (p+num));
+}
 
-        function newDate(i){
-            var saved= sessionStorage.getItem('date');
-            var d = new Date(saved);
-            d.setDate(d.getDate() + i);
-            var out= d.toISOString().slice(0, 10)
+function save(i) {
+    if (sessionStorage.getItem(keys[i]) == "true") {
+        sessionStorage.setItem(keys[i], false);
+        document.getElementById(i).style.backgroundColor="#0493DA"
+        decrement(prices[i]);
+    } else {
+        sessionStorage.setItem(keys[i], true);
+        document.getElementById(i).style.backgroundColor="#283F94"
+        increment(prices[i]);
+    }
+}
 
-            sessionStorage.setItem('date', out);
+function newDate(i){
+    var saved= sessionStorage.getItem('date');
+    var d = new Date(saved);
+    d.setDate(d.getDate() + i);
+    var out= d.toISOString().slice(0, 10)
 
-            document.getElementById("dat1").innerHTML =sessionStorage.getItem("date");
-            document.getElementById("dat2").innerHTML =sessionStorage.getItem("date");
-        }
+    sessionStorage.setItem('date', out);
 
-        for (let i = 1; i < 4; i++) {
-            document.getElementById("route" + i).innerHTML = sessionStorage.getItem("departure") + " <img style='height: 1em;' src='../icons-images/svgs/start/flight-twoway-icon2.svg' />" + sessionStorage.getItem("destination");
-        }
+    document.getElementById("dat1").innerHTML =sessionStorage.getItem("date");
+    document.getElementById("dat2").innerHTML =sessionStorage.getItem("date");
+}
 
-        document.getElementById("dat1").innerHTML =sessionStorage.getItem("date");
-        document.getElementById("dat2").innerHTML =sessionStorage.getItem("date");
-       
+for (let i = 1; i < 4; i++) {
+    document.getElementById("route" + i).innerHTML = sessionStorage.getItem("departure") + " <img style='height: 1em;' src='../icons-images/svgs/start/flight-twoway-icon2.svg' />" + sessionStorage.getItem("destination");
+}
+
+document.getElementById("dat1").innerHTML =sessionStorage.getItem("date");
+document.getElementById("dat2").innerHTML =sessionStorage.getItem("date");
+
     </script>
 </body>
 

@@ -15,20 +15,18 @@
 <body>
     <div id="headform">
         <div class="header" style="position: initial;">
-            <div style="flex:1;margin: 2vw;">Menu</div>
+            <div id="menu">Menu</div>
             <div id="header-center"> <img style="height:10vh;" src="../icons-images/images/flyone-logo.png" /></div>
-            <div style="flex:1;margin: 2vw;">Login</div>
+            <div id="login">Login</div>
         </div>
 
         <div style="text-align:center; font-family: Rubik; font-size: 30px; color: #FFFF;">
-            <div>
-                Book flight
-                <div id="search-form">
-                    <input class="text-input" type="text" placeholder="From" name="departure" required/>
-                    <input class="text-input" type="text" placeholder="To" name="destination" required/>
-                    <input class="text-input" type="date" placeholder="Departure date" name="date" required/>
-                    <input class="text-input" type="text" placeholder="Promo code" name="promo" />
-                </div>
+            Book flight
+            <div id="search-form">
+                <input class="text-input" type="text" placeholder="From" name="departure" required />
+                <input class="text-input" type="text" placeholder="To" name="destination" required />
+                <input class="text-input" type="date" placeholder="Departure date" name="date" required />
+                <input class="text-input" type="text" placeholder="Promo code" name="promo" />
             </div>
             <button type="submit" id="nextbtn" onclick="save();" class="button-light-blue"> Search Flight</button>
         </div>
@@ -52,12 +50,12 @@
             window.sessionStorage.setItem('price', 22);
             window.sessionStorage.setItem('serviceCharge', 22);
 
-            if (sessionStorage.getItem("departure")!="null" & sessionStorage.getItem("departure")!=""
-            & sessionStorage.getItem("destination")!="null" & sessionStorage.getItem("destination")!=""
-            & sessionStorage.getItem("date")!="null" & sessionStorage.getItem("date")!="") { 
-                location = '/date'; 
-            }else{
-                document.getElementById("nextbtn").innerHTML="Please select a destination, departure location and date."
+            if (sessionStorage.getItem("departure") != "null" & sessionStorage.getItem("departure") != ""
+                & sessionStorage.getItem("destination") != "null" & sessionStorage.getItem("destination") != ""
+                & sessionStorage.getItem("date") != "null" & sessionStorage.getItem("date") != "") {
+                location = '/date';
+            } else {
+                document.getElementById("nextbtn").innerHTML = "Please select a destination, departure location and date."
             }
         }
 
@@ -74,7 +72,7 @@
             map.src = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178&center=" +
                 position.coords.latitude + "," + position.coords.longitude + "&zoom=5";
         }
-        
+
         function fail(err) {
             console.log(err);
         }
@@ -82,9 +80,7 @@
         function err() {
             map.innerHTML = "The Map cannot be displayed at this time due to an error.";
         }
-
     </script>
-
 
     <div class="bottom-menu">
         <a id="bottom-boxes" href="./start">Home</a>
