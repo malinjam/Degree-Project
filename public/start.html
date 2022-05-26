@@ -21,12 +21,11 @@
       navigator.serviceWorker.getRegistration().then( registration =>{
         var opt= {
           title: "Welcome to the prototype!",
-          body: "Note: This is a protottype, no sensitive information should be entered here to book a flight with FlyOne please refer to https://flyone.eu/en/",
+          body: "Note: This is a protottype, no sensitive information should be entered here. To book a flight with FlyOne please refer to https://flyone.eu/en/",
           icon: "/icons-images/apple-touch-icon.png"
         };
         registration.showNotification("Welcome!", opt);
       });
-        //var notification= new Notification( "  \n ");
     } else if (permission === "denied") {
       console.log("Notification permission denied");
     } else if (permission === "default") {

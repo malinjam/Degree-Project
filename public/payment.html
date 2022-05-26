@@ -29,13 +29,14 @@
 
     </div>
 
-    <div style="display:flex; flex-direction: column; justify-content: center;">
+    <form style="display:flex; flex-direction: column; justify-content: center;">
         <h2>Passenger details </h2>
         <h3>Adult 1</h3>
         <div style="display:flex; flex-direction:row;">
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="First Name" />
             <input class="text-input" style="flex:1;" id="innerbox" type="text" placeholder="Family Name" />
         </div>
+
         <div id="innerbox"
             style="justify-self: center; justify-content: center; display:flex;flex-direction: row; padding:0%; width: 20vw; height: 2em; border-width: 0px;">
             <div style=" flex:1;">
@@ -49,6 +50,7 @@
                 </label>
             </div>
         </div>
+        
         <h2>Payment and Contect details</h2>
         <h3>Contact details</h3>
         <input class="text-input" id="innerbox" style="width:auto;" type="email" placeholder="email address" />
@@ -72,54 +74,139 @@
                     src="https://flyone.eu/en/About-FLYONE/General-Rules-FLYONE-LLC">General Conditions,</a> and <a
                     src="https://flyone.eu/en/Terms-of-Use">Terms and Conditions</a></label>
         </div>
+    </form>
 
-        <div class="contbox modal" id="summary">
-            <div>Departure <img style="height: 1em;" src="../icons-images/svgs/start/flight-twoway-icon2.svg" />
-                Destination </div>
-            <div> Date: </div>
-            <div> Additional Services: </div>
-            <div>Total:€</div>
-            <button onclick="document.getElementById('summary').style.display='none';" class="button-blue"
-                style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
+    <div class="contbox modal" id="summary">
+        <h4>Summary</h4>
+        <div id="innerflow">
+        <div id="route"> route</div>
+        <div> Date: <span id="dat" type="date">date </span> </div>
+        <div>Ticket: €<span id="ticket">€ </span> </div>
+        <div>Service Charge: €22</div>
+        <h4>Additional Services:</h4>
+        
+        <div id="flex"> </div>
+        <div id="lock"> </div>
+        <div id="largeBag"> </div>
+        <div id="bagGuarantee"> </div>
+        <div id="bagPrio"> </div>
+        <div id="sport"> </div>
+        <div id="notice"> </div>
+        <div id="autoCheckIn"> </div>
+        <div id="onTime"> </div>
+        <div id="pets"> </div>
+        <div id="seat"> </div>
+        <div id="meal"> </div>
+        <div id="checkInType"> </div>
+        <div id="checkInBagTitle" style="display:none">Bag Check-In: </div>
+        <div id="40"> </div>
+        <div id="55"> </div>
+        <div id="85"> </div>
+     </div>
+        <h5 id="price">Total: €</h5>
+        <button onclick="document.getElementById('summary').style.display='none';" class="button-blue"
+            style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; position: fixed; bottom: 0px; left: 0px;">
+        <div style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
+            <button onclick="summary();" id="sum">Summary</button>
+            <button
+                style="flex:1; font-size: 2vh; margin-left: 1%; padding: 1%; border-radius: 5px; border-color: #13235c;"
+                type="submit" onclick="notifyend()" class="button-blue">Pay now</button>
         </div>
-
-        <div style="display: flex; flex-direction: column; position: fixed; bottom: 0px; left: 0px;">
-            <div style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
-                <button onclick="summary();" id="sum">Summary</button>
-                <button
-                    style="flex:1; font-size: 2vh; margin-left: 1%; padding: 1%; border-radius: 5px; border-color: #13235c;"
-                    type="submit" onclick="notifyend()" class="button-blue">Pay now</button>
-            </div>
-            <div class="bottom-menu" style="width:100vw; position: unset; bottom: unset; left: unset;">
-                <a id="bottom-boxes" href="./start">Home</a>
-                <a id="bottom-boxes" href="./search">Book</a>
-                <a id="bottom-boxes">Bookings</a>
-                <a id="bottom-boxes">More</a>
-            </div>
+        <div class="bottom-menu" style="width:100vw; position: unset; bottom: unset; left: unset;">
+            <a id="bottom-boxes" href="./start">Home</a>
+            <a id="bottom-boxes" href="./search">Book</a>
+            <a id="bottom-boxes">Bookings</a>
+            <a id="bottom-boxes">More</a>
         </div>
+    </div>
 
-        <script src="/js/app.js"></script>
-        <script src="/js/payment.js"></script>
-        <script>
-            function summary() {
-                console.log("summary func called");
-                document.getElementById("summary").style.display = "flex";
+    <script src="/js/app.js"></script>
+    <script src="/js/payment.js"></script>
+    <script>
+        var keys = ["flex", "lock", "largeBag", "bagGuarantee", "bagPrio", "sport", "notice", "autoCheckIn", "onTime", "pets", "meal", "checkInType"];
+        var keysTitle = ["Change Flex: €", "Fare Lock : €", "Large Bag: €", "Bag Guarantee: €", "Bag Priority: €", "Sport Equipment: €", "Priority Notice: €", "Automated Check-In: €", "On-Time Guarantee: €", "Pets: €", "Meal: €", "Check-In: €"];
+        var prices = [30, 6, 12, 4, 3, 50, 4, 6, 4, 60, 12, 15];
+
+        function show(i) {
+            if (sessionStorage.getItem(keys[i]) != "false" && sessionStorage.getItem(keys[i]) != "null" && sessionStorage.getItem(keys[i]) != null) {
+                document.getElementById(keys[i]).style.display = "block";
+                document.getElementById(keys[i]).innerHTML = keysTitle[i] + prices[i];
+            } else {
+                document.getElementById(keys[i]).style.display = "none";
             }
-            function close() {
-                console.log("close func called");
-                document.getElementById("summary").style.display = "none";
+        }
+
+        function getPrice(row) {
+            if (row == 1) {
+                return 25;
             }
-            function notifyend() {
-                navigator.serviceWorker.getRegistration().then(registration => {
-                    var opt = {
-                        title: "The end!",
-                        body: "Thank you for previewing the PWA booking flow prototype.",
-                        icon: "/icons-images/apple-touch-icon.png"
-                    };
-                    registration.showNotification("Goodbye!", opt);
-                });
+            else if (row == 2) {
+                return 18;
             }
-        </script>
+            else if (row < 6) {
+                return 11;
+            } else if (row < 12) {
+                return 8;
+            } else if (row < 14) {
+                return 18;
+            } else { return 6; }
+        }
+
+        function summary(i) {
+            for (var i = 0; i < keysTitle.length; i++) {
+                show(i)
+            }
+            if (sessionStorage.getItem("seatRow") != null && sessionStorage.getItem("seatRow") != "null") {
+                var row = sessionStorage.getItem("seatRow");
+                var column = sessionStorage.getItem("seatColumn");
+                var price = getPrice(row);
+                document.getElementById("seat").innerHTML = "Seat " + column + row + ": €" + price;
+            }
+            var checkInBagSizes = ["nr1bags", "nr2bags", "nr3bags"]
+            var checkInBagTitles = [" x 10kg Bags: €", " x 20kg Bags: €", " x 30kg Bags: €"]
+            var checkInBagPrices = [40, 55, 85]
+            if (sessionStorage.getItem("bagstotalnr") != 0) {
+                document.getElementById("checkInBagTitle").style = "display: inline";
+                var price = 0;
+                for (var i = 0; i < 3; i++) {
+                    if (sessionStorage.getItem(checkInBagSizes[i]) != 0) {
+                        document.getElementById(checkInBagPrices[i]).style.display = "inline";
+                        var price = checkInBagPrices[i] * sessionStorage.getItem(checkInBagSizes[i]);
+                        document.getElementById(checkInBagPrices[i]).innerHTML = sessionStorage.getItem(checkInBagSizes[i]) + checkInBagTitles[i] + price;
+                    }
+                }
+            }
+            else {
+                document.getElementById("checkInBagTitle").style = "display: none";
+                for (var i = 0; i < 3; i++) {
+                    document.getElementById(checkInBagPrices[i]).style.display = "none";
+                }
+
+            }
+            document.getElementById("price").innerHTML = "Total: €" + sessionStorage.getItem("price");
+            document.getElementById("summary").style.display = "flex";
+
+        }
+
+        function close() {
+            document.getElementById("summary").style.display = "none";
+        }
+
+
+        function notifyend() {
+            navigator.serviceWorker.getRegistration().then(registration => {
+                var opt = {
+                    title: "The end!",
+                    body: "Thank you for previewing the PWA booking flow prototype.",
+                    icon: "/icons-images/apple-touch-icon.png"
+                };
+                registration.showNotification("Goodbye!", opt);
+            });
+        }
+    </script>
 </body>
 
 </html>

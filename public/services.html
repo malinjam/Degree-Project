@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" href="/icons-images/apple-touch-icon.png">
 </head>
 
-<body style="justify-content: left;">
+<body>
     <div style="position: fixed; width: 100%; top: 0px; left: 0px; display: flex; flex-direction: column;">
         <div class="header" style="position: unset; top: unset; left: unset;">
             <div style="flex:1;margin: 2vw;">Menu</div>
@@ -26,78 +26,74 @@
         </div>
     </div>
 
-    </div>
-
     <h2>Baggage</h2>
     <div> Small cabin bag included </div>
-
-    <div style="display:flex; flex-direction:column; margin:1%;">
-        <button class="contbox contservices" onclick="save(2)">
+        <button id="2" class="contbox contservices" onclick="save(2)">
             <img src="../icons-images/svgs/select bags/F1-Icon-04.svg" class="extras" />
             <div class="textflex">
                 <div>Large Cabin bag + Priority</div>
                 <div>Extra 10kg (50x40x25) cabin bag</div>
         </button>
-    </div>
-    <div class="contbox">
-        <button onclick="loadBagsInfo()" id="contservices"
-            class="contbox" style="box-shadow: none;">
-            <img src="../icons-images/svgs/select bags/F1-Icon-03.svg" class="extras" />
-            <div class="textflex">
-                <div>Checked-in baggage</div>
-                <div>Select 10kg, 20kg or 30kg</div>
-            </div>
-        </button>
-        <div id="checkInBags">
-            Check-in Bags:
-            <div style="display:flex; flex-direction: row;">
-                <div id="in">
-                    10kg
-                    <div style="display:flex; flex-direction:row">
-                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr1bags', 40)">+</button>
-                        <div id="nr1bags"> 0 </div>
-                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr1bags', 40)">-</button>
-                    </div>
-                </div>
-                <div id="in">
-                    20kg
-                    <div style="display:flex; flex-direction:row">
-                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr2bags', 55)">+</button>
-                        <div id="nr2bags"> 0 </div>
-                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr2bags', 55)">-</button>
-                    </div>
-                </div>
-                <div id="in">
-                    30kg
-                    <div style="display:flex; flex-direction:row">
-                        <button class="button-blue plus" onclick="bagsUpdate(1, 'nr3bags', 85)">+</button>
-                        <div id="nr3bags"> 0 </div>
-                        <button class="button-blue minus" onclick="bagsUpdate(-1, 'nr3bags', 85)">-</button>
-                    </div>
-                </div>
-            </div>
-            <div style="display:flex; flex-direction:row;">
-                <button onclick="cancelBags()" class="button-blue"
-                    style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "> Cancel</button>
-                <button
-                    onclick="document.getElementById('checkInBags').style.display='none';"
-                    class="button-light-blue" style="width:50%"> Save </button>
-            </div>
 
+
+    <button onclick="loadBagsInfo()" id="CheckInBagBtn" class="contbox contservices"
+        style="display:flex; flex-direction:row">
+        <img src="../icons-images/svgs/select bags/F1-Icon-03.svg" class="extras" />
+        <div class="textflex">
+            <div>Checked-in baggage</div>
+            <div>Select 10kg, 20kg or 30kg</div>
         </div>
-        </button>
+    </button>
+
+    <div class="contbox modal" id="checkInBags">
+
+        Check-in Bags:
+        <div style="display:flex; flex-direction: row;">
+            <div class="in">
+                10kg <br>
+                €40
+                <div style="display:flex; flex-direction:row; justify-content: center;">
+                    <button id="nr1bags1" class="button-blue plus round" onclick="bagsUpdate(1, 'nr1bags', 40)">+</button>
+                    <div id="nr1bags" class="round"> 0 </div>
+                    <button id="nr1bags2" class="button-blue minus round" onclick="bagsUpdate(-1, 'nr1bags', 40)">-</button>
+                </div>
+            </div>
+            <div class="in">
+                20kg<br>
+                €55
+                <div style="display:flex; flex-direction:row; justify-content: center;">
+                    <button id="nr2bags1" class="button-blue plus round" onclick="bagsUpdate(1, 'nr2bags', 55)">+</button>
+                    <div id="nr2bags" class="round"> 0 </div>
+                    <button id="nr2bags2" class="button-blue minus round" onclick="bagsUpdate(-1, 'nr2bags', 55)">-</button>
+                </div>
+            </div>
+            <div class="in">
+                30kg<br>
+                €85
+                <div style="display:flex; flex-direction:row; justify-content: center;">
+                    <button id="nr3bags1" class="button-blue plus round" onclick="bagsUpdate(1, 'nr3bags', 85)">+</button>
+                    <div id="nr3bags" class="round"> 0 </div>
+                    <button id="nr3bags2" class="button-blue minus round" onclick="bagsUpdate(-1, 'nr3bags', 85)">-</button>
+                </div>
+            </div>
+        </div>
+        <div style="display:flex; flex-direction:row;">
+            <button onclick="cancelBags()" class="button-blue"
+                style="margin: 1em; border-width: 0px; width: 50%; line-height: 2em; "> Cancel</button>
+            <button onclick="document.getElementById('checkInBags').style.display='none';" class="button-light-blue"
+                style="width:50%"> Save </button>
+        </div>
     </div>
     <h2>Seats and Meals</h2>
-    <div class="contbox">
         <button
             onclick="document.getElementById('seatSaveBtn').innerHTML='Save'; document.getElementById('seats').style.display ='inline';"
-            class="contbox contservices" style="box-shadow: none;">
+            class="contbox contservices" id="SeatBtn">
             <img src="../icons-images/svgs/loader icon/loader-type1-4.svg" class="extras" />
             <div class="textflex">
                 <div>Seats</div>
                 <div>Travel with family and friends.</div>
         </button>
-    </div>
+    
 
     <div class="contbox modal" id="seats">
         Seats:
@@ -674,22 +670,20 @@
         </div>
     </div>
 
-
-
     Meals
     <div id="meals">
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;"
+        <button class="contbox" id="mealClassic"
             onclick="specSelect(specValues[0], 0, 12)">
-            <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw; line-height: 5em;">Classic</div>
+            <div style="font-family: Montserrat;color: inherit;font-size: 2vw; line-height: 5em;">Classic</div>
         </button>
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;"
+        <button class="contbox" id="mealMedeteranean"
             onclick="specSelect(specValues[1], 0, 12)">
-            <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Medeterranean</div>
+            <div style="font-family: Montserrat;color:inherit;font-size: 2vw;line-height: 5em;">Medeterranean</div>
         </button>
 
-        <button class="contbox" style="flex:1; justify-content: center;align-items: center;"
+        <button class="contbox" id="mealTraditional"
             onclick="specSelect(specValues[2], 0, 12)">
-            <div style="font-family: Montserrat;color: #6C737E;font-size: 2vw;line-height: 5em;">Traditional</div>
+            <div style="font-family: Montserrat;color: inherit;font-size: 2vw;line-height: 5em;">Traditional</div>
         </button>
     </div>
 
@@ -697,61 +691,61 @@
     <div><img style="height:1em;" src="../icons-images/svgs/loader icon/loader-type1-2.svg" /> Online check-in free
         24h</div>
     <div id="checkIn">
-        <button class="contbox checkInBtn" onclick="specSelect(specValues[3], 1, 15)">
+        <button id="checkInTypeAirport" class="contbox checkInBtn" onclick="specSelect(specValues[3], 1, 15)">
             <img src="../icons-images/svgs/select specs/F1-133-Airport-Check-in.svg" class="extras"
                 style="height: 50%;width:auto;" />
-            <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Airport Check-in</div>
+            <div style="font-family: Montserrat;color: inherit;font-size: 4vw;">Airport Check-in</div>
         </button>
-        <button class="contbox checkInBtn" onclick="specSelect(specValues[4],1,15)">
+        <button id="checkInTypeEarly" class="contbox checkInBtn" onclick="specSelect(specValues[4],1,15)">
             <img src="../icons-images/svgs/select specs/F1-133-Early-Checking.svg" class="extras"
                 style="height: 50%; width:auto;" />
-            <div style="font-family: Montserrat;color: #6C737E;font-size: 4vw;">Early Check-in</div>
+            <div style="font-family: Montserrat;color: inherit;font-size: 4vw;">Early Check-in</div>
         </button>
     </div>
     <h2>Other services</h2>
-    <button class="contbox contservices" onclick="save(3)">
+    <button id="3" class="contbox contservices" onclick="save(3)">
         <img src="../icons-images/svgs/select bags/F1-71-Bag-guarantee.svg" class="extras" />
         <div class="textflex">
             <div>Baggage guarantee</div>
             <div>Insurance in case of damage</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(4)">
+    <button id="4" class="contbox contservices" onclick="save(4)">
         <img src="../icons-images/svgs/select bags/F1-Icon-04.svg" class="extras" />
         <div class="textflex">
             <div>Baggage priority</div>
             <div>Stop waiting in line!</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(5)">
+    <button id="5" class="contbox contservices" onclick="save(5)">
         <img src="../icons-images/svgs/select specs/F1-Icon-44-Sport.svg" class="extras" />
         <div class="textflex">
             <div>Sports equipment</div>
             <div>Travel with sports gear!</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(6)">
+    <button id="6" class="contbox contservices" onclick="save(6)">
         <img src="../icons-images/svgs/select specs/F1-133-Priority-Notification.svg" class="extras" />
         <div class="textflex">
             <div>Priority notification</div>
             <div>Find out first!</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(7)">
+    <button id="7"class="contbox contservices" onclick="save(7)">
         <img src="../icons-images/svgs/select specs/F1-133-online-Check-up.svg" class="extras" />
         <div class="textflex">
             <div>Automated check-in</div>
             <div>Automatically check-in!</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(8)">
+    <button id="8" class="contbox contservices" onclick="save(8)">
         <img src="../icons-images/svgs/select specs/F1-72-On-time-Guarantee.svg" class="extras" />
         <div class="textflex">
             <div>On-time guarantee</div>
             <div>Delayed flight or cancelled flight?</div>
         </div>
     </button>
-    <button class="contbox contservices" onclick="save(9)">
+    <button id="9" class="contbox contservices" onclick="save(9)">
         <img src="../icons-images/svgs/select specs/F1-Icon-46-Pet.svg" class="extras" />
         <div class="textflex">
             <div>Pets on board</div>
@@ -761,31 +755,33 @@
     </div>
 
     <div class="contbox modal" id="summary">
+        <h4>Summary</h4>
+        <div id="innerflow">
         <div id="route"> route</div>
-        <div> Date: <div id="dat" type="date">date </div>
-        </div>
-        <div>Ticket:<div id="ticket">€ </div>
-        </div>
+        <div> Date: <span id="dat" type="date">date </span> </div>
+        <div>Ticket: €<span id="ticket">€ </span> </div>
         <div>Service Charge: €22</div>
-        <div> Additional Services:
-            <div id="flex"> </div>
-            <div id="lock"> </div>
-            <div id="largeBag"> </div>
-            <div id="bagGuarantee"> </div>
-            <div id="bagPrio"> </div>
-            <div id="sport"> </div>
-            <div id="notice"> </div>
-            <div id="autoCheckIn"> </div>
-            <div id="onTime"> </div>
-            <div id="pets"> </div>
-
-            <div id="seat"> </div>
-            <div id="meal"> </div>
-            <div id="checkInType"> </div>
-            <div id="checkInBags"> </div>
-
-        </div>
-        <div id="price">Total: €</div>
+        <h4>Additional Services:</h4>
+        
+        <div id="flex"> </div>
+        <div id="lock"> </div>
+        <div id="largeBag"> </div>
+        <div id="bagGuarantee"> </div>
+        <div id="bagPrio"> </div>
+        <div id="sport"> </div>
+        <div id="notice"> </div>
+        <div id="autoCheckIn"> </div>
+        <div id="onTime"> </div>
+        <div id="pets"> </div>
+        <div id="seat"> </div>
+        <div id="meal"> </div>
+        <div id="checkInType"> </div>
+        <div id="checkInBagTitle" style="display:none">Bag Check-In: </div>
+        <div id="40"> </div>
+        <div id="55"> </div>
+        <div id="85"> </div>
+     </div>
+        <h5 id="price">Total: €</h5>
         <button onclick="document.getElementById('summary').style.display='none';" class="button-blue"
             style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
     </div>
@@ -793,7 +789,7 @@
     <div style="display: flex; flex-direction: column; position: fixed; bottom: 0px; left: 0px;">
         <div style="display: flex; flex-direction: row; background-color: #F7F7FE; padding: 1%; border-top:5px;">
             <button onclick="summary();" id="sum">Summary</button>
-            <button onclick="next(); window.location='/payment';"
+            <button onclick=" window.location='/payment';"
                 style="flex:1; font-size: 2vh; margin-left: 1%; padding: 1%; border-radius: 5px; border-color: #13235c;"
                 type="submit" class="button-blue">Next</button>
         </div>
@@ -807,7 +803,7 @@
 
 
     <script src="/js/app.js"></script>
-    <script>//"checkInBagsnr", "checkInBagstype", "seat", "mealType", "checkInType",
+    <script>
         var keys = ["flex", "lock", "largeBag", "bagGuarantee", "bagPrio", "sport", "notice", "autoCheckIn", "onTime", "pets", "meal", "checkInType"];
         var keysTitle = ["Change Flex: €", "Fare Lock : €", "Large Bag: €", "Bag Guarantee: €", "Bag Priority: €", "Sport Equipment: €", "Priority Notice: €", "Automated Check-In: €", "On-Time Guarantee: €", "Pets: €", "Meal: €", "Check-In: €"];
         var prices = [30, 6, 12, 4, 3, 50, 4, 6, 4, 60, 12, 15];
@@ -816,35 +812,46 @@
         document.getElementById("dat").innerHTML = sessionStorage.getItem("date");
         document.getElementById("ticket").innerHTML = sessionStorage.getItem("ticket");
 
-        //                37, 55, 85,  bag prices no seat prices
-
-        const premium = 25;
-        const front = 11;
-        const wing = 18;
-        const other1 = 8;
-        const other2 = 6;
-
         function show(i) {
             if (sessionStorage.getItem(keys[i]) != "false" && sessionStorage.getItem(keys[i]) != "null" && sessionStorage.getItem(keys[i]) != null) {
-                console.log(keys[i] + " true " + i)
                 document.getElementById(keys[i]).style.display = "block";
                 document.getElementById(keys[i]).innerHTML = keysTitle[i] + prices[i];
             } else {
-                console.log(keys[i] + " false")
                 document.getElementById(keys[i]).style.display = "none";
             }
         }
 
-
         function summary(i) {
-
             for (var i = 0; i < keysTitle.length; i++) {
                 show(i)
             }
-            if (sessionStorage.getItem("seat") != null && sessionStorage.getItem("seat") != "null") {
-                var s = sessionStorage.getItem("seat");
-                document.getElementById("seat").innerHTML = "Seat: " + s[0] + " " + s[1];
+            if (sessionStorage.getItem("seatRow") != null && sessionStorage.getItem("seatRow") != "null") {
+                var row = sessionStorage.getItem("seatRow");
+                var column = sessionStorage.getItem("seatColumn");
+                var price = getPrice(row);
+                document.getElementById("seat").innerHTML = "Seat "+column+row +": €"+price;
             }
+            var checkInBagSizes=["nr1bags", "nr2bags", "nr3bags"]
+            var checkInBagTitles=[" x 10kg Bags: €", " x 20kg Bags: €", " x 30kg Bags: €"]
+            var checkInBagPrices=[40, 55, 85]
+            if(sessionStorage.getItem("bagstotalnr")!=0){
+                document.getElementById("checkInBagTitle").style="display: inline";
+                var price=0;
+                for(var i=0; i<3; i++){
+                    if(sessionStorage.getItem(checkInBagSizes[i])!=0){
+                        document.getElementById(checkInBagPrices[i]).style.display = "inline";
+                        var price=checkInBagPrices[i]*sessionStorage.getItem(checkInBagSizes[i]);
+                        document.getElementById(checkInBagPrices[i]).innerHTML= sessionStorage.getItem(checkInBagSizes[i])+ checkInBagTitles[i]+price;
+                    }
+                }
+            }
+            else{
+                document.getElementById("checkInBagTitle").style="display: none";
+            for(var i=0; i<3; i++){
+                document.getElementById(checkInBagPrices[i]).style.display = "none";
+            }
+        
+        }
             document.getElementById("price").innerHTML = "Total: €" + sessionStorage.getItem("price");
             document.getElementById("summary").style.display = "flex";
 
@@ -855,54 +862,52 @@
             sessionStorage.setItem('price', (p + add));
         }
 
-
         function decrement(sub) {
             var c = parseInt(sessionStorage.getItem('price'));
             sessionStorage.setItem('price', (c - sub));
         }
 
-        function next() {
-
-            for (let i = 0; i < values.length; i++) {
-                if (values[i] != null) {
-                    window.sessionStorage.setItem(keys[i], values[i]);
-                }
-
-            }
-        }
-
         function seatPrice(price) {
             document.getElementsByClassName("seat-icon").innerHTML(price);
-            document.get
-            console.log(price);
         }
 
         function save(i) {
             if (sessionStorage.getItem(keys[i]) == "true") {
                 sessionStorage.setItem(keys[i], false);
+                document.getElementById(i).style.backgroundColor="#F7F7FE";
+                document.getElementById(i).style.color="inherit";
                 decrement(prices[i]);
             } else {
                 sessionStorage.setItem(keys[i], true);
+                document.getElementById(i).style.backgroundColor="#283F94";
+                document.getElementById(i).style.color="#F7F7FE";
                 increment(prices[i]);
             }
-
         }
 
-        var formId = ["checkInBags", "seats", "meals", "checkInType"]
-        var specValues = ["Classic", "Medereranean", "Traditional", "Airport", "Early"]
-        var specKeys = ["meal", "checkInType", "seat"]
-       
+        var specValues = ["Classic", "Medeteranean", "Traditional", "Airport", "Early"];
+        var specKeys = ["meal", "checkInType", "seat"];
         var seatPrices = [6, 8, 11, 18, 25];
 
         function specSelect(value, key, price) {
             if (sessionStorage.getItem(specKeys[key]) == "null" || sessionStorage.getItem(specKeys[key]) == null) {
                 increment(price);
+                document.getElementById(specKeys[key]+value).style.backgroundColor="#283F94";
+                document.getElementById(specKeys[key]+value).style.color="#F7F7FE";
                 sessionStorage.setItem(specKeys[key], value);
             }
             else if (sessionStorage.getItem(specKeys[key]) == value) {
                 decrement(price);
+                document.getElementById(specKeys[key]+value).style.backgroundColor="#F7F7FE";
+                document.getElementById(specKeys[key]+value).style.color="inherit";
                 sessionStorage.setItem(specKeys[key], "null");
             } else {
+                var old= sessionStorage.getItem(specKeys[key]);
+                document.getElementById(specKeys[key]+old).style.backgroundColor="#F7F7FE";
+                document.getElementById(specKeys[key]+old).style.color="inherit";
+
+                document.getElementById(specKeys[key]+value).style.backgroundColor="#283F94";
+                document.getElementById(specKeys[key]+value).style.color="#F7F7FE";
                 sessionStorage.setItem(specKeys[key], value);
             }
 
@@ -923,57 +928,70 @@
 
         function bagsUpdate(nr, type, cost) {
             var total = parseInt(sessionStorage.getItem("bagstotalnr"));
-            console.log(total);
             var stored = parseInt(sessionStorage.getItem(type));
-            console.log(stored);
 
-            sessionStorage.setItem("bagstotalnr", (total+nr));
-            sessionStorage.setItem(type, (stored+nr));
-            console.log(sessionStorage.getItem(type));
+            sessionStorage.setItem("bagstotalnr", (total + nr));
+            sessionStorage.setItem(type, (stored + nr));
+            
             increment((nr * cost));
-            document.getElementById(type).innerHTML = (stored+nr);
+            document.getElementById(type).innerHTML = (stored + nr);
             document.getElementsByClassName("plus").disabled = false;
             document.getElementsByClassName("minus").disabled = false;
-            checkBounds(total+nr);
-
+            checkBounds(total + nr);
 
         }
 
-        function checkBounds(total){
-
-            if (total == 3 ) {
-                var plusBtn= document.getElementsByClassName("plus");
-                for(var i=0; i<3; i++){plusBtn[i].disabled = true;}
+        function checkBounds(total) {
+            if (total == 3) {
+                var plusBtn = document.getElementsByClassName("plus");
+                for (var i = 0; i < 3; i++) { plusBtn[i].disabled = true; }
+                document.getElementById("CheckInBagBtn").style.backgroundColor="#283F94";
+                document.getElementById("CheckInBagBtn").style.color="#F7F7FE";
             } else if (total == 0) {
-                var minusBtn= document.getElementsByClassName("minus")
-                for(var i=0; i<3; i++){minusBtn[i].disabled = true;}
+                var minusBtn = document.getElementsByClassName("minus")
+                for (var i = 0; i < 3; i++) { minusBtn[i].disabled = true; }
+                document.getElementById("CheckInBagBtn").style.backgroundColor="#F7F7FE";
+                document.getElementById("CheckInBagBtn").style.color="inherit";
             } else{
-                var minusBtn= document.getElementsByClassName("minus")
-                for(var i=0; i<3; i++){minusBtn[i].disabled = false;}
+                var minusBtn = document.getElementsByClassName("minus")
+                var plusBtn = document.getElementsByClassName("plus");
+                var types = ["nr1bags", "nr2bags", "nr3bags"];
+                for (var i = 0; i < 3; i++) {
+                    minusBtn[i].disabled = false;
+                    plusBtn[i].disabled = false;
 
-                var plusBtn= document.getElementsByClassName("plus");
-                for(var i=0; i<3; i++){plusBtn[i].disabled = false;}
+                    if(sessionStorage.getItem(types[i])==0){
+                        document.getElementById(types[i]+2).disabled=true;                    
+                    }
+                    if(sessionStorage.getItem(types[i])==3){
+                        document.getElementById(types[i]+1).disabled=true;                    
+                    }
+                }
+                document.getElementById("CheckInBagBtn").style.backgroundColor="#283F94";
+                document.getElementById("CheckInBagBtn").style.color="#F7F7FE";
             }
         }
 
-        function loadBagsInfo(){
+        function loadBagsInfo() {
             checkBounds(sessionStorage.getItem("bagstotalnr"));
-            var types= ["nr1bags", "nr2bags", "nr3bags"];
-            for(var i=0; i<3; i++){
+            var types = ["nr1bags", "nr2bags", "nr3bags"];
+            for (var i = 0; i < 3; i++) {
                 document.getElementById(types[i]).innerHTML = sessionStorage.getItem(types[i]);
             }
-            document.getElementById('checkInBags').style.display ='inline';
+            document.getElementById('checkInBags').style.display = 'block';
         }
 
-        function cancelBags(){
-            var types= ["nr1bags", "nr2bags", "nr3bags"];
-            for(var i=0; i<3; i++){
+        function cancelBags() {
+            var types = ["nr1bags", "nr2bags", "nr3bags"];
+            for (var i = 0; i < 3; i++) {
                 document.getElementById(types[i]).innerHTML = 0;
                 sessionStorage.setItem(types[i], 0);
             }
             sessionStorage.setItem("bagstotalnr", 0);
+            document.getElementById("CheckInBagBtn").style.backgroundColor="#F7F7FE";
+            document.getElementById("CheckInBagBtn").style.color="inherit";
 
-            document.getElementById('checkInBags').style.display='none';
+            document.getElementById('checkInBags').style.display = 'none';
         }
 
         function seatSave() {
@@ -984,6 +1002,7 @@
                     var savedColumn = sessionStorage.getItem("seatColumn");
                     var row = seats[i].value;
                     var column = seats[i].name;
+
                     if (savedRow == null || savedRow == "null") {
                         sessionStorage.setItem("seatRow", row);
                         sessionStorage.setItem("seatColumn", column);
@@ -994,8 +1013,10 @@
                         increment(getPrice(row))
                         sessionStorage.setItem("seatRow", row);
                         sessionStorage.setItem("seatColumn", column);
-                    }
-                    //tmorrow agenda: continue for rest of seats + check in bags + payment switch
+                    } 
+
+                    document.getElementById("SeatBtn").style.backgroundColor="#283F94";
+                    document.getElementById("SeatBtn").style.color="#F7F7FE";
                     document.getElementById('seats').style.display = 'none';
                     document.getElementById("seatSaveBtn").innerHTML = " "
                 } else {
@@ -1032,9 +1053,12 @@
                 sessionStorage.setItem("seatColumn", null);
                 document.getElementById('seats').style.display = 'none';
             }
+            document.getElementById("SeatBtn").style.backgroundColor="#F7F7FE";
+                    document.getElementById("SeatBtn").style.color="inherit";
 
         }
 
+        
     </script>
 </body>
 

@@ -55,7 +55,7 @@
 }
 
 .button-blue:disabled {
-    background: #9AA5D4;
+    background: rgba(187, 197, 201, 0.7);
 }
 
 .button-light-blue {
@@ -72,8 +72,9 @@
     margin: 1em;
 }
 
+
 .button-light-blue:disabled {
-    background: #9AA5D4;
+    background: #283F94;
 }
 
 .button-light-blue::after {
@@ -122,6 +123,10 @@
     font-size: 2rem;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+
+#price {
+    font-family: 'Rubik';
 }
 
 #progress-bar {
@@ -249,6 +254,10 @@ body {
     background-color: #FFFFFF;
 }
 
+h4 {
+    font-family: 'Rubik';
+}
+
 a {
     color: #0493DA;
     font-weight: bold;
@@ -256,6 +265,7 @@ a {
 
 .contbox {
     position: static;
+    color: #6C737E;
     display: flex;
     flex-direction: column;
     background-color: #F7F7FE;
@@ -332,15 +342,21 @@ a {
     justify-content: center;
 }
 
-#in {
-    background-color: #FFFF;
-    width: 33%;
+.in {
+    flex: 1;
     border-radius: 5px;
     align-items: center;
-    border: 3px solid #E5E5E5;
+    justify-content: center;
     padding-top: 3%;
     padding-bottom: 1%;
     margin: 1%;
+}
+
+.round {
+    border-radius: 25px;
+    height: 2em;
+    width: 2em;
+    margin: 2%;
 }
 
 #service-overlays {
@@ -373,9 +389,9 @@ a {
     flex-direction: row;
 }
 
-#plus{
-    display:flex; 
-    flex-direction:row
+#plus {
+    display: flex;
+    flex-direction: row
 }
 
 .seat-icon {
@@ -385,7 +401,7 @@ a {
     border-radius: 10px;
     border-width: 5px;
     border-style: solid;
-    padding:5%;
+    padding: 5%;
     flex: 1;
     width: 100%;
     margin: 1%;
@@ -397,13 +413,18 @@ a {
     font-size: 2vw;
 }
 
-.seat-icon:not(.example)::after {
-    padding: 1%;
-    border-color: #47864F;
-    color: #47864F;
+.radio:checked ~label {
     background-color: #A3C3A7;
+    color: #47864F;
+    border-color: #47864F;
+    border-radius: 10px;
+    border-width: 5px;
+    border-style: solid;
+    padding: 5%;
+    flex: 1;
+    width: 100%;
+    margin: 1%;
     font-size: 2vw;
-    transform: scale(1);
 }
 
 .premium {
@@ -425,7 +446,7 @@ a {
     background-color: #E0AF5C;
 }
 
-.modal{
+.modal {
     display: none;
     flex-direction: column;
     position: fixed;
@@ -451,6 +472,40 @@ a {
     color: #6C737E;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#mealClassic {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#mealMedeteranean {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#mealTraditional {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#summary {
+    width: 60%;
+    height: 70%;
+    padding: 2%;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#innerflow {
+    overflow-y: scroll;
+    align-items: flex-start;
+    text-align: left;
+    height: 70%;
+    width: 100%;
 }
 
 #offline {
@@ -484,6 +539,6 @@ a {
     padding: 3%;
 }
 
-.radio{
+.radio {
     display: none;
 }

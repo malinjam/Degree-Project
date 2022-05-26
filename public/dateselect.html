@@ -33,19 +33,15 @@
         <div id="route1"> </div>
         <div
             style="display: flex; flex-direction: row; justify-content: center; align-items: center; column-gap: 20px;">
-            <a style="flex:1;"><img /></a>
-            <div class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;"> &lt </div>
+            <button class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;" onclick="newDate(-1)"> &lt </button>
             <div class="contbox" id="dates"
                 style=" font-size: 70%;color: #ffff;background-color: #283F94; flex:4; padding: 1em;"><div id="dat1"> day</div> </div>
-            <div class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;"> &gt </div>
-            <a style="flex:1;">
-                <im />
-            </a>
+            <button class="contbox" id="dates" style="font-size: 5vw; padding:0px; color:#cecbcb;" onclick="newDate(1)"> &gt </button>
         </div>
     </div>
 
     <div class="contbox" style="margin: 2%;">
-        <div style="display:flex; flex-direction: row; text-align:center; margin:10px;">
+        <div style="display:flex; flex-direction: row; width:100%; margin:10px;">
             <div style="flex:2" id="route2"> route </div>
             <div style="color: #0493DA; font-weight: bold; flex:1;"> From <br /> €100 </div>
         </div>
@@ -83,7 +79,7 @@
             With the Lock Fare service you can block the fare and we can hold for 48 hours up to 5 days before the
             flight.
         </div>
-        <button class="button-light-blue"
+        <button id="0" class="button-light-blue"
             onclick="save(0)">
             Add for €6</button>
     </div>
@@ -95,21 +91,22 @@
             Have your travel plans changed? <br />
             Change the flight date without penalties up to 24 hours before the flight with the Change Flex service.
         </div>
-        <button class="button-light-blue"
+        <button id="1" class="button-light-blue"
             onclick="save(1)">
             Add for €30</button>
     </div>
     </div>
 
-    <div class="contbox modal" id="summary">
+    <div class="contbox modal" id="summary" style=" height: 50%;">
+        <h4>Summary</h4>
         <div id="route3"> route</div>
-        <div> Date: <div id="dat2" type="date">date </div> </div>
+        <div>Date: <span id="dat2" type="date">date </span> </div>
         <div>Service Charge: €22</div>
-        <div> Additional Services:
+        <h4>Additional Services:</h4>
             <div id="flex"> </div>
             <div id="lock"> </div>
-        </div>
-        <div id="price">Total: €</div>
+        
+        <h5 id="price">Total: €</h5>
         <button onclick="document.getElementById('summary').style.display='none';" class="button-blue"
             style="margin: 1em; border-width: 0px; line-height: 2em;"> Close</button>
     </div>
@@ -134,20 +131,16 @@
         function summary() {
             
             if(sessionStorage.getItem('lock') == "true"){
-                console.log("lock true")
-                document.getElementById("lock").style.display="block";
+                document.getElementById("lock").style.display="inline";
                 document.getElementById("lock").innerHTML="Fare Lock : €6";
             }else{
-                console.log("lock false")
                 document.getElementById("lock").style.display="none";
             }
 
             if(sessionStorage.getItem('flex') == "true"){
-                console.log("flex true")
-                document.getElementById("flex").style.display="block";
+                document.getElementById("flex").style.display="inline";
                 document.getElementById("flex").innerHTML="Change Flex: €30";
             }else{
-                console.log("flex false")
                 document.getElementById("flex").style.display="none";
             }
 
@@ -169,11 +162,25 @@
         function save(i) {
             if (sessionStorage.getItem(keys[i]) == "true") {
                 sessionStorage.setItem(keys[i], false);
+                document.getElementById(i).style.backgroundColor="#0493DA"
                 decrement(prices[i]);
             } else {
                 sessionStorage.setItem(keys[i], true);
+                document.getElementById(i).style.backgroundColor="#283F94"
                 increment(prices[i]);
             }
+        }
+
+        function newDate(i){
+            var saved= sessionStorage.getItem('date');
+            var d = new Date(saved);
+            d.setDate(d.getDate() + i);
+            var out= d.toISOString().slice(0, 10)
+
+            sessionStorage.setItem('date', out);
+
+            document.getElementById("dat1").innerHTML =sessionStorage.getItem("date");
+            document.getElementById("dat2").innerHTML =sessionStorage.getItem("date");
         }
 
         for (let i = 1; i < 4; i++) {
