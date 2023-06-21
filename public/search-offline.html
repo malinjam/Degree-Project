@@ -31,7 +31,7 @@
     </div>
     <div style=" margin:0%; padding:0%; left:0px; top: 30vh; bottom: 10vh; right:0px; position: absolute; z-index: -1;">
         <iframe id="map" width="100%" height="100%" style="border:0" loading="lazy" on="locate();" onerror="err();"
-            referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178
+            referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/view?
           &center=47.0657328,28.8958778
           &zoom=5">
         </iframe>
@@ -63,11 +63,11 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(work, fail);
         } else {
-            map.src = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178&center=47.0657328,28.8958778&zoom=5"
+            map.src = "https://www.google.com/maps/embed/v1/view?&center=47.0657328,28.8958778&zoom=5"
         }
 
         function work(position) {
-            map.src = "https://www.google.com/maps/embed/v1/view?key=AIzaSyBUJG-hM9LPK3UpLuPaXd0bpAlRWZL7178&center=" +
+            map.src = "https://www.google.com/maps/embed/v1/view?&center=" +
                 position.coords.latitude + "," + position.coords.longitude + "&zoom=5";
         }
 
